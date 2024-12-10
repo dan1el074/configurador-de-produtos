@@ -1,11 +1,11 @@
 <?php
     namespace Repositories;
 
-    use Models\Produto;
+    use Models\Acabamento;
     use Repositories\Repository as Repository;
     use PDO;
 
-    class ProdutoRepository implements Repository {
+    class AcabamentoRepository implements Repository {
 
         private PDO $pdo;
 
@@ -15,7 +15,7 @@
         }
 
         public function findAll(): array {
-            $sql = 'SELECT * FROM tb_products';
+            $sql = 'SELECT * FROM tb_finish';
             
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -24,7 +24,7 @@
 
             $arr = [];
             foreach($result as $row) {
-                $produto = new Produto($row["id"], $row["name"], $row["abbreviation"]);
+                $produto = new Acabamento($row["id"], $row["name"], $row["abbreviation"]);
                 $arr[] = $produto;
             }
 
