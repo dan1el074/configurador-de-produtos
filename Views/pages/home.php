@@ -11,17 +11,17 @@
 
     <form action="" method="post">
         <label for="order">Pedido:</label>
-        <input type="text" name="order" id="order">
+        <input type="text" name="order" id="order" required>
 
         <label for="product">Produto:</label>
-        <select name="product" id="product">
+        <select name="product" id="product" required>
             <?php foreach($atributes['produtos'] as $product) { ?>
                 <option value="<?= $product->getId() ?>"><?= "{$product->getName()} - {$product->getAbbreviation()}" ?></option>
             <?php } ?>
         </select>
         
         <label for="finish">Acabemento superficial:</label>
-        <select name="finish" id="finish">
+        <select name="finish" id="finish" required>
             <?php foreach($atributes['acabamentos'] as $finish) { ?>
                 <option value="<?= $finish->getId() ?>"><?= $finish->getName() . ($finish->getAbbreviation() ? " - " . $finish->getAbbreviation() : "")?></option>
             <?php } ?>

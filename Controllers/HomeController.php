@@ -18,6 +18,14 @@ use Services\ProdutoService;
             $produtoArray = $this->produtoService->findAll();
             $acabamentoarray = $this->acabamentoService->findAll();
             $this->view->render(['titulo'=>'home','produtos'=>$produtoArray,'acabamentos'=>$acabamentoarray]);
+
+            if(isset($_POST['order'])) {
+                $this->step2();
+            }
+        }
+
+        public function step2(): void {
+            //TODO: tratar elementos antes de ir para step2
         }
     }
 ?>
