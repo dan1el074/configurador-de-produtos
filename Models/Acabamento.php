@@ -1,7 +1,7 @@
 <?php 
     namespace Models;
 
-    class Produto {
+    class Acabamento {
         private int $id;
         private string $name;
         private string $abbreviation;
