@@ -11,7 +11,7 @@
             $this->fileName = $fileName;
             $this->headerFile = $headerFile;
             $this->footerFile = $footerFile;
-            $this->menuItems = ['home', 'product'];
+            $this->menuItems = ['home', 'produto'];
         }
         public function render(array $atributes = []): void {
             include('pages/templates/'.$this->headerFile.'.php');

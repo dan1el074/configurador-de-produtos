@@ -11,6 +11,7 @@
         public function __construct() {
             $this->url = "";
         }
+        
         public function execute() {
             if(isset($_GET['url'])) {
                 $this->url = explode('/', $_GET['url'])[0];

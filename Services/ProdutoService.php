@@ -2,14 +2,14 @@
     namespace Services;
 
     use Repositories\Repository;
-    use Repositories\ProductRepository;
+    use Repositories\ProdutoRepository;
 
-    class ProductService {
+    class ProdutoService {
 
         private Repository $repository;
 
         public function __construct() {
-            $this->repository = new ProductRepository();
+            $this->repository = new ProdutoRepository();
         }
 
         public function findAll(): array {

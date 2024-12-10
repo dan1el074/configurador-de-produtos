@@ -1,11 +1,11 @@
 <?php
     namespace Repositories;
 
-use Models\Product;
+use Models\Produto;
 use Repositories\Repository as Repository;
     use PDO;
 
-    class ProductRepository implements Repository {
+    class ProdutoRepository implements Repository {
 
         private PDO $pdo;
 
@@ -24,8 +24,8 @@ use Repositories\Repository as Repository;
 
             $arr = [];
             foreach($result as $row) {
-                $product = new Product($row["name"], $row["abbreviation"]);
-                $arr[] = $product;
+                $produto = new Produto($row["name"], $row["abbreviation"]);
+                $arr[] = $produto;
             }
 
             return $arr;
