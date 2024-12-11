@@ -1,7 +1,7 @@
 <?php
     namespace Repositories;
 
-    use Models\Acabamento;
+    use Entities\Acabamento;
     use Repositories\Repository as Repository;
     use PDO;
 

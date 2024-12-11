@@ -1,7 +1,7 @@
 <?php
     namespace Repositories;
 
-    use Models\Produto;
+    use Entities\Produto;
     use Repositories\Repository as Repository;
     use PDO;
 
