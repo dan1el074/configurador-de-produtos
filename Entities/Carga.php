@@ -1,7 +1,7 @@
 <?php 
     namespace Entities;
 
-    class Acabamento {
+    class Carga {
         private int $id;
         private string $name;
         private string $abbreviation;

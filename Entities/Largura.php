@@ -1,7 +1,7 @@
 <?php 
     namespace Entities;
 
-    class Acabamento {
+    class Largura {
         private int $id;
         private string $name;
         private string $abbreviation;

@@ -1,5 +1,5 @@
 <?php 
-    namespace Models;
+    namespace Entities;
 
     class Produto {
         private int $id;
