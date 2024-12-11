@@ -5,25 +5,25 @@ USE product_config;
 CREATE TABLE tb_products ( 
     id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    abbreviation VARCHAR(10) NOT NULL,
-    options TEXT
+    abbreviation VARCHAR(20) NOT NULL,
+    options TEXT NOT NULL
 );
 
-INSERT INTO tb_products (id, name, abbreviation) VALUES (1, 'Niveladora de Docas Avançada', 'NDA');
-INSERT INTO tb_products (id, name, abbreviation) VALUES (2, 'Niveladora de Docas Embutida', 'NDE');
-INSERT INTO tb_products (id, name, abbreviation) VALUES (3, 'Niveladora de Doca Movel', 'NDM');
-INSERT INTO tb_products (id, name, abbreviation) VALUES (4, 'Mesa Elevatória Extra Baixa', 'MEB');
-INSERT INTO tb_products (id, name, abbreviation) VALUES (5, 'Mini Rampa', 'MR');
-INSERT INTO tb_products (id, name, abbreviation) VALUES (6, 'Plataforma Veicular', 'VR');
-INSERT INTO tb_products (id, name, abbreviation) VALUES (7, 'Porta Seccional', 'PTA');
-INSERT INTO tb_products (id, name, abbreviation) VALUES (8, 'Prolongador de Garfo', 'PG');
-INSERT INTO tb_products (id, name, abbreviation) VALUES (9, 'Mesa Elevatoria', 'ME');
-INSERT INTO tb_products (id, name, abbreviation) VALUES (10, 'Mesa Extra Baixa', 'MEB');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (1, 'Niveladora de Docas Avançada', 'NDA', '{"options": [1,2,3,4,5], "rules": {"fosso": [["padrão","F500 P500"], ["especial",""]]}}');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (2, 'Niveladora de Docas Embutida', 'NDE', '{"options": [0,1,5]}');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (3, 'Niveladora de Doca Movel', 'NDM', '{"options": [0,1,5]}');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (4, 'Mesa Elevatória Extra Baixa', 'MEB', '{"options": [0,1,5]}');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (5, 'Mini Rampa', 'MR', '{"options": [0,1,5]}');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (6, 'Plataforma Veicular', 'VR', '{"options": [0,1,5]}');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (7, 'Porta Seccional', 'PTA', '{"options": [0,1,5]}');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (8, 'Prolongador de Garfo', 'PG', '{"options": [0,1,5]}');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (9, 'Mesa Elevatoria', 'ME', '{"options": [1,2,3,4,5]}');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (10, 'Mesa Extra Baixa', 'MEB', '{"options": [1,2,3,4,5], "rules": {"opções": [["formato em U","U"], ["formato em E","E"]]}}');
 
 CREATE TABLE tb_finish (
     id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    abbreviation VARCHAR(10) NOT NULL
+    abbreviation VARCHAR(20) NOT NULL
 );
 
 INSERT INTO tb_finish (id, name, abbreviation) VALUES (1, 'Galvanizado a Fogo', 'GALVANIZADO');

@@ -13,6 +13,7 @@
             $this->footerFile = $footerFile;
             $this->menuItems = ['home', 'produto'];
         }
+        
         public function render(array $atributes = []): void {
             include('pages/templates/'.$this->headerFile.'.php');
             include('pages/'.$this->fileName.'.php');
