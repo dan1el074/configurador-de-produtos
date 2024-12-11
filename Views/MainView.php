@@ -11,7 +11,7 @@
             $this->fileName = $fileName;
             $this->headerFile = $headerFile;
             $this->footerFile = $footerFile;
-            $this->menuItems = ['home', 'produto'];
+            $this->menuItems = ['home', 'login'];
         }
         
         public function render(array $atributes = []): void {

@@ -4,17 +4,18 @@
     
     foreach ($arrayRules as $key => $value) {
         $title = ucfirst($key);
-        $ruleInput .= "<label>{$title}</label>
-                <select>
+        $ruleInput .= "<input type=\"hidden\" name=\"ruleName\" value=\"{$key}\">
+                <label>{$title}</label>
+                <select name=\"ruleSelect\">
                 <option value=\"\" disabled selected>Selecione</option>";
 
         foreach ($value as $key2 => $value2) {
             $item = ucfirst($value2[0]);
 
             if($value2[1]) {
-                $ruleInput .= "<option>{$item} - {$value2[1]}</option>";
+                $ruleInput .= "<option value=\"{$value2[1]}\">{$item} - {$value2[1]}</option>";
             } else {
-                $ruleInput .= "<option>{$item}</option>";
+                $ruleInput .= "<option value=\"{$value2[0]}\">{$item}</option>";
             }
         }
 
@@ -32,7 +33,7 @@
                             <h2>Parâmetros adicionais:</h2>
                             {$ruleInput}
                             <div class=\"button-content\">
-                                <button name=\"action2\" type=\"submit\"><span>Proximo</span></button>
+                                <button name=\"halfStepAction\" type=\"submit\"><span>Proximo</span></button>
                             </div>
                         <form> 
                     </div>
