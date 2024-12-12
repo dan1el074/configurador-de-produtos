@@ -17,7 +17,7 @@
         <select name="product_id" id="product" required>
             <option value="" disabled selected>Selecione o produto</option>
             <?php foreach($atributes['produtos'] as $product) { ?>
-                <option value="<?= $product->getId() ?>" <?= isset($_SESSION["product_id"]) ? $_SESSION["product_id"] == $product->getId() ? "selected" : "" : "" ?>><?= "{$product->getName()} - {$product->getAbbreviation()}" ?></option>
+                <option value="<?= $product->getId() ?>" <?= isset($_SESSION["product_id"]) ? ($_SESSION["product_id"] == $product->getId() ? "selected" : "") : "" ?>><?= "{$product->getName()} - {$product->getAbbreviation()}" ?></option>
             <?php } ?>
         </select>
         
@@ -25,7 +25,7 @@
         <select name="finish_id" id="finish" required>
             <option value="" disabled selected>Selecione o acabamento</option>
             <?php foreach($atributes['acabamentos'] as $finish) { ?>
-                <option value="<?= $finish->getId() ?>" <?= isset($_SESSION["finish_id"]) ? $_SESSION["finish_id"] == $finish->getId() ? "selected" : "" : "" ?>><?= $finish->getName() . ($finish->getAbbreviation() ? " - " . $finish->getAbbreviation() : "")?></option>
+                <option value="<?= $finish->getId() ?>" <?= isset($_SESSION["finish_id"]) ? ($_SESSION["finish_id"] == $finish->getId() ? "selected" : "") : "" ?>><?= $finish->getName() . ($finish->getAbbreviation() ? " - " . $finish->getAbbreviation() : "")?></option>
             <?php } ?>
         </select>
 

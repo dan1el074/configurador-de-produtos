@@ -1,24 +1,37 @@
 <?php 
     namespace Controllers;
 
+    use Services\AcionamentoService;
+    use Services\CargaService;
+    use Services\ComprimentoService;
+    use Services\LarguraService;
     use Services\ProdutoService;
     use Views\popUpView;
     use Views\MainView;
 
     final class Step2Controller extends Controller{
         private ProdutoService $produtoService;
+        private CargaService $cargaService;
+        private ComprimentoService $comprimentoService;
+        private LarguraService $larguraService;
+        private AcionamentoService $acionamentoService;
 
         public function __construct() {
             $this->produtoService = new ProdutoService();
+            $this->cargaService = new CargaService();
+            $this->comprimentoService = new ComprimentoService();
+            $this->larguraService = new LarguraService();
+            $this->acionamentoService = new AcionamentoService();
 
-            // if(isset($_POST['action'])) {
-            //     $_SESSION["order"] = $_POST['order'];
-            //     $_SESSION["product_id"] = $_POST['product_id'];
-            //     $_SESSION["finish_id"] = $_POST['finish_id'];
+            if(isset($_POST['action'])) {
+                $_SESSION["weight_id"] = $_POST['weight_id'];
+                $_SESSION["length_id"] = $_POST['length_id'];
+                $_SESSION["width_id"] = $_POST['width_id'];
+                $_SESSION["drive_id"] = $_POST['drive_id'];
 
-            //     $this->view = new MainView('halfStep');
-            //     return;
-            // }
+                $this->view = new MainView('halfStep2');
+                return;
+            }
             
             // if(isset($_POST['halfStepAction'])) {
             //     $_SESSION["ruleName"] = $_POST['ruleName'];
@@ -33,37 +46,42 @@
 
         public function execute(): void {
             $productArray = $this->produtoService->findAll();
-            $this->view->render(['titulo'=>'step-2','produtos'=>$productArray]);
+            $cargaArray = $this->cargaService->findAll();
+            $comprimentoArray = $this->comprimentoService->findAll();
+            $larguraArray = $this->larguraService->findAll();
+            $acionamentoArray = $this->acionamentoService->findAll();
+            $this->view->render(['titulo'=>'step-2','produtos'=>$productArray, 'carga'=>$cargaArray, 'comprimento'=>$comprimentoArray, 'largura'=>$larguraArray, 'acionamento'=>$acionamentoArray]);
 
             if(isset($_POST['action'])) {
-                $this->nextStep($productArray);
+                $this->nextStep($acionamentoArray);
             }
         }
 
-        // public function nextStep(array $productArray): void {
-        //     $productId = $_POST['product_id'];
+        public function nextStep(array $acionamentoArray): void {
+            $driveId = $_POST['drive_id'];
 
-        //     if(!$this->showPopUp($productArray, $productId)) {
-        //         echo "<script>window.location.href='step2';</script>";
-        //         exit;
-        //     };
-        // }
+            if(!$this->showPopUp($acionamentoArray, $driveId)) {
+                // echo "<script>window.location.href='step3';</script>";
+                // exit;
+                echo "passou por aqui";
+            };
+        }
 
-        // public function showPopUp(array $productArray, int $productId): bool {
-        //     $find = false;
-        //     foreach ($productArray as $key => $value) { 
-        //         if ($value->getId() == $productId) {
-        //             if(isset($value->getOptions()->rules)) {
-        //                 $find = true;
-        //                 $popUp = new popUpView();
-        //                 $popUp->render($value->getOptions()->rules);
-        //             }                    
+        public function showPopUp(array $acionamentoArray, int $driveId): bool {
+            $find = false;
+            foreach ($acionamentoArray as $key => $acionamento) { 
+                if ($acionamento->getId() == $driveId) {
+                    if(isset($acionamento->getOptions()->rules)) {
+                        $find = true;
+                        $popUp = new popUpView();
+                        $popUp->render($acionamento->getOptions()->rules);
+                    }                    
 
-        //             break;
-        //         }
-        //     }    
+                    break;
+                }
+            }    
             
-        //     return $find;
-        // }
+            return $find;
+        }
     }
 ?>
