@@ -24,8 +24,8 @@
             }
             
             if(isset($_POST['halfStepAction'])) {
-                $_SESSION["ruleName"] = $_POST['ruleName'];
-                $_SESSION["ruleValue"] = $_POST['ruleSelect'];
+                $_SESSION["productRuleName"] .= ", " . $_POST['ruleName'];
+                $_SESSION["productRuleValue"] .= ", " . $_POST['ruleSelect'];
 
                 echo "<script>window.location.href='step2';</script>";
                 exit;
@@ -61,7 +61,7 @@
                     if(isset($value->getOptions()->rules)) {
                         $find = true;
                         $popUp = new popUpView();
-                        $popUp->render($value->getOptions()->rules);
+                        $popUp->render($value->getOptions());
                     }                    
 
                     break;

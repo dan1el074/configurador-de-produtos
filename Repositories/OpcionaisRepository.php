@@ -1,11 +1,11 @@
 <?php
     namespace Repositories;
 
-    use Entities\Acionamento;
+    use Entities\Opcionais;
     use Repositories\Repository as Repository;
     use PDO;
 
-    class AcionamentoRepository implements Repository {
+    class OpcionaisRepository implements Repository {
 
         private PDO $pdo;
 
@@ -15,7 +15,7 @@
         }
 
         public function findAll(): array {
-            $sql = 'SELECT * FROM tb_drive';
+            $sql = 'SELECT * FROM tb_optional';
             
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -24,8 +24,8 @@
 
             $arr = [];
             foreach($result as $row) {
-                $drive = new Acionamento($row["id"], $row["name"], $row["abbreviation"], isset($row["options"]) ? json_decode($row["options"]) : json_decode('{}'));
-                $arr[] = $drive;
+                $optional = new Opcionais($row["id"], $row["name"], $row["abbreviation"], isset($row["options"]) ? json_decode($row["options"]) : json_decode('{}'));
+                $arr[] = $optional;
             }
 
             return $arr;

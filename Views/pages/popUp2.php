@@ -1,29 +1,32 @@
 <?php
-    $arrayRules = get_object_vars($rules->rules);
     $ruleInput = "";
+
+    foreach($arrayRules as $key => $rules) {
+        $arrayRules = get_object_vars($rules->rules);
     
-    foreach ($arrayRules as $key => $value) {
-        $title = ucfirst($key);
-        $ruleInput .= "<input type=\"hidden\" name=\"ruleName\" value=\"{$key}\">
-                <label>{$title}</label>
-                <select name=\"ruleSelect\">
-                <option value=\"\" disabled selected>Selecione</option>";
+        foreach ($arrayRules as $key => $value) {
+            $title = ucfirst($key);
+            $ruleInput .= "<input type=\"hidden\" name=\"ruleName\" value=\"{$key}\">
+                    <label>{$title}</label>
+                    <select name=\"ruleSelect\">
+                    <option value=\"\" disabled selected>Selecione</option>";
 
-        foreach ($value as $key2 => $value2) {
-            $item = ucfirst($value2[0]);
+            foreach ($value as $key2 => $value2) {
+                $item = ucfirst($value2[0]);
 
-            if($value2[0] && $value2[1]) {
-                $ruleInput .= "<option value=\"{$value2[1]}\">{$item} - {$value2[1]}</option>";
-            } 
-            if($value2[0] && !$value2[1]) {
-                $ruleInput .= "<option value=\"{$value2[0]}\">{$item}</option>";
+                if($value2[0] && $value2[1]) {
+                    $ruleInput .= "<option value=\"{$value2[1]}\">{$item} - {$value2[1]}</option>";
+                } 
+                if($value2[0] && !$value2[1]) {
+                    $ruleInput .= "<option value=\"{$value2[0]}\">{$item}</option>";
+                }
+                if(!$value2[0] && $value2[1]) {
+                    $ruleInput .= "<option value=\"{$value2[1]}\">{$value2[1]}</option>";
+                }
             }
-            if(!$value2[0] && $value2[1]) {
-                $ruleInput .= "<option value=\"{$value2[1]}\">{$value2[1]}</option>";
-            }
+
+            $ruleInput .= "</select>";
         }
-
-        $ruleInput .= "</select>";
     }
 
     $text = "

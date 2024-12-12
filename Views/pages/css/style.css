@@ -18,7 +18,6 @@ body .layout-fix {
   min-height: 100vh;
 }
 
-/* //////// Typography //////// */
 h1 {
   font-family: "Poppins", sans-serif;
   font-size: 30px;
@@ -28,6 +27,12 @@ h1 {
 h2 {
   font-family: "Poppins", sans-serif;
   font-size: 26px;
+  font-weight: 600;
+}
+
+h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
   font-weight: 600;
 }
 
@@ -41,6 +46,7 @@ p {
 a,
 input,
 label,
+fieldset,
 textarea {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -53,7 +59,6 @@ textarea {
   font-weight: 600;
 }
 
-/* //////// Header //////// */
 header {
   background-color: rgb(32, 32, 32);
   position: fixed;
@@ -96,7 +101,6 @@ header .logo {
   width: 150px;
 }
 
-/* //////// Mobile //////// */
 #menu {
   display: inline;
   position: fixed;
@@ -170,25 +174,25 @@ header .logo {
   transform-origin: 0% 100%;
 }
 
-#menuToggle input:checked ~ span {
+#menuToggle input:checked~span {
   opacity: 1;
   transform: rotate(45deg) translate(0px, 2px);
   background: #36383f;
 }
-#menuToggle input:checked ~ span:nth-last-child(3) {
+
+#menuToggle input:checked~span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-#menuToggle input:checked ~ span:nth-last-child(2) {
+#menuToggle input:checked~span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-#menuToggle input:checked ~ ul {
+#menuToggle input:checked~ul {
   transform: none;
 }
 
-/* //////// Main //////// */
 main {
   display: flex;
   flex-direction: column;
@@ -212,7 +216,6 @@ main p {
   margin: 10px 0;
 }
 
-/* //////// Form //////// */
 .productForm {
   display: flex;
   flex-direction: column;
@@ -280,36 +283,36 @@ button {
   overflow: hidden;
   background: #0e1472;
   color: #fff;
- }
+}
 
 button span {
   position: relative;
   z-index: 10;
   transition: color 0.4s;
- }
- 
- button::before,
- button::after {
+}
+
+button::before,
+button::after {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
- }
- 
- button::before {
+}
+
+button::before {
   content: "";
   background: #202abe;
   width: 120%;
   left: -10%;
   transform: skew(30deg);
   transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
- }
- 
- button:hover::before {
+}
+
+button:hover::before {
   transform: translate3d(100%, 0, 0);
- }
+}
 
 .nav {
   display: flex;
@@ -344,10 +347,91 @@ button span {
 }
 
 option[value=""] {
+  display: none !important;
+}
+
+.optionsForm h3 {
+  margin: 30px 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding: 0 20px 7px 40px;
+  margin-top: 7px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.178);
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container.mestre {
+  border-bottom: none;
+  color: rgb(90, 90, 90);
+}
+
+.container:last-of-type {
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+
+.container .fix {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+.container input:checked~.checkmark {
+  transition: .4s;
+  background-color: #202abe;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
   display: none;
 }
 
-/* //////// Pop-up //////// */
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .black-background {
   position: fixed;
   right: 0;
@@ -387,7 +471,6 @@ option[value=""] {
   border-radius: 10px;
 }
 
-/* //////// Footer //////// */
 footer {
   text-align: center;
   background-color: rgb(32, 32, 32);
@@ -424,7 +507,6 @@ footer .divider-mobile {
   margin: 8px auto;
 }
 
-/* //////// Media query //////// */
 @media (max-width: 801px) {
   main {
     width: 100%;
@@ -487,13 +569,13 @@ footer .divider-mobile {
   }
 }
 
-/* //////// Keyframes //////// */
 @-webkit-keyframes fade-in {
   0% {
     -webkit-transform: translateY(20px);
     transform: translateY(20px);
     opacity: 0;
   }
+
   100% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
@@ -507,11 +589,10 @@ footer .divider-mobile {
     transform: translateY(20px);
     opacity: 0;
   }
+
   100% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
   }
 }
-
-

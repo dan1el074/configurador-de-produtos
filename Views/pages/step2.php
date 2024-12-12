@@ -10,7 +10,7 @@
     </div>
 
     <form action="" method="post">
-    <label for="weight">Carga:</label>
+        <label for="weight">Carga:</label>
         <select name="weight_id" id="weight" required>
             <option value="" disabled selected>Selecione a carga</option>
             <?php foreach($atributes['carga'] as $weight) { ?>

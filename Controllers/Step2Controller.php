@@ -47,15 +47,22 @@
             if(isset($_POST['action'])) {
                 $this->nextStep($acionamentoArray);
             }
+            
+            if(isset($_POST['halfStepAction'])) {
+                $_SESSION["driveRuleName"] .= ", " . $_POST['ruleName'];
+                $_SESSION["driveRuleValue"] .= ", " . $_POST['ruleSelect'];
+
+                echo "<script>window.location.href='step3';</script>";
+                exit;
+            }
         }
 
         public function nextStep(array $acionamentoArray): void {
             $driveId = $_POST['drive_id'];
 
             if(!$this->showPopUp($acionamentoArray, $driveId)) {
-                // echo "<script>window.location.href='step3';</script>";
-                // exit;
-                echo "passou por aqui";
+                echo "<script>window.location.href='step3';</script>";
+                exit;
             };
         }
 
@@ -66,7 +73,7 @@
                     if(isset($acionamento->getOptions()->rules)) {
                         $find = true;
                         $popUp = new popUpView();
-                        $popUp->render($acionamento->getOptions()->rules);
+                        $popUp->render($acionamento->getOptions());
                     }                    
 
                     break;

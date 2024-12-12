@@ -1,7 +1,7 @@
 <?php 
     namespace Controllers;
 
-    final class loginController extends Controller{
+    final class LoginController extends Controller{
 
         public function __construct() {
             $this->view = new \Views\MainView('login');

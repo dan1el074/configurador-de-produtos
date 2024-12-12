@@ -11,6 +11,10 @@
         public function render(object $rules): void {
             include('pages/'.$this->popUp.'.php');
         }
+
+        public function renderWithArray(array $arrayRules): void {
+            include('pages/'.$this->popUp.'.php');
+        }
     }
 
 ?>
