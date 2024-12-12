@@ -90,7 +90,7 @@ CREATE TABLE tb_drive (
     options TEXT
 );
 
-INSERT INTO tb_drive (id, name, abbreviation, options) VALUES (0, 'Elétrico hidráulico','EH', '{"rules": {"voltagem": [["","220V"], ["","380V"], ["","440V"]]}, {"tipo": [["","Trifasico"], ["","Monofasico"], ["","Bifasico"]]}}');
+INSERT INTO tb_drive (id, name, abbreviation, options) VALUES (0, 'Elétrico hidráulico','EH', '{"rules": {"voltagem": [["","220V"], ["","380V"], ["","440V"]]}}');
 INSERT INTO tb_drive (id, name, abbreviation) VALUES (1, 'Hidráulico manual','HM');
 INSERT INTO tb_drive (id, name, abbreviation) VALUES (2, 'Mola a gás','MG');
 INSERT INTO tb_drive (id, name, abbreviation) VALUES (3, 'Mola Helicoidal','MH');

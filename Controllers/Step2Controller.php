@@ -32,14 +32,6 @@
                 $this->view = new MainView('halfStep2');
                 return;
             }
-            
-            // if(isset($_POST['halfStepAction'])) {
-            //     $_SESSION["ruleName"] = $_POST['ruleName'];
-            //     $_SESSION["ruleValue"] = $_POST['ruleSelect'];
-
-            //     echo "<script>window.location.href='step2';</script>";
-            //     exit;
-            // }
 
             $this->view = new MainView('step2');
         }

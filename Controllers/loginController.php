@@ -1,8 +1,6 @@
 <?php 
     namespace Controllers;
 
-    use Services\ProdutoService;
-
     final class loginController extends Controller{
 
         public function __construct() {
