@@ -96,7 +96,7 @@
             foreach ($opcionaisArray as $key => $opcional) { 
                 foreach ($resultsId as $resultId) {
                     if ($opcional->getId() == $resultId) {
-                        if(isset($opcional->getOptions()->rules)) {
+                        if(isset($opcional->getRules()->rules)) {
                             $find = true;
                             $optionals[] = $opcional;
                         }                    

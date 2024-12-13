@@ -24,7 +24,7 @@
 
             $arr = [];
             foreach($result as $row) {
-                $produto = new Produto($row["id"], $row["name"], $row["abbreviation"], json_decode($row["options"]));
+                $produto = new Produto($row["id"], $row["name"], $row["abbreviation"], json_decode($row["options"]), isset($row["rules"]) ? json_decode($row["rules"]) : json_decode('{}'));
                 $arr[] = $produto;
             }
 

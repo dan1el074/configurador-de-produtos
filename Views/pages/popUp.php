@@ -1,5 +1,5 @@
 <?php
-    $arrayRules = get_object_vars($object->getOptions()->rules);
+    $arrayRules = get_object_vars($object->getRules()->rules);
     $counter = 0;
     $ruleInput = "<h4>{$object->getName()}</h4>";
     

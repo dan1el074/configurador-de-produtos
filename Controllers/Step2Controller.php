@@ -76,7 +76,7 @@
             $find = false;
             foreach ($acionamentoArray as $key => $acionamento) { 
                 if ($acionamento->getId() == $driveId) {
-                    if(isset($acionamento->getOptions()->rules)) {
+                    if(isset($acionamento->getRules()->rules)) {
                         $find = true;
                         $popUp = new popUpView();
                         $popUp->render($acionamento);

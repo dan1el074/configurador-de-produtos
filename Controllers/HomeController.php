@@ -64,7 +64,7 @@
             $find = false;
             foreach ($productArray as $key => $product) { 
                 if ($product->getId() == $productId) {
-                    if(isset($product->getOptions()->rules)) {
+                    if(isset($product->getRules()->rules)) {
                         $find = true;
                         $popUp = new popUpView();
                         $popUp->render($product);

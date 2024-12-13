@@ -6,10 +6,11 @@ CREATE TABLE tb_products (
     id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     abbreviation VARCHAR(20) NOT NULL,
-    options TEXT NOT NULL
+    options TEXT NOT NULL,
+    rules TEXT
 );
 
-INSERT INTO tb_products (id, name, abbreviation, options) VALUES (0, 'Niveladora de Docas Avançada', 'NDA', '{"options": [1,2,3,4,5,11], "rules": {"fosso": [["padrão","F500 P500"], ["especial",""]], "teste1": [["padrão","testando!"], ["especial",""]]}}');
+INSERT INTO tb_products (id, name, abbreviation, options, rules) VALUES (0, 'Niveladora de Docas Avançada', 'NDA', '{"options": [1,2,3,4,5,11]}', '{"rules": {"fosso": [["padrão","F500 P500"], ["especial",""]], "teste1": [["padrão","testando!"], ["especial",""]]}}');
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (1, 'Niveladora de Docas Embutida', 'NDE', '{"options": [0,1,5]}');
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (2, 'Niveladora de Doca Movel', 'NDM', '{"options": [0,1,5]}');
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (3, 'Mesa Elevatória Extra Baixa', 'MEB', '{"options": [0,1,5]}');
@@ -18,7 +19,7 @@ INSERT INTO tb_products (id, name, abbreviation, options) VALUES (5, 'Plataforma
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (6, 'Porta Seccional', 'PTA', '{"options": [0,1,5]}');
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (7, 'Prolongador de Garfo', 'PG', '{"options": [0,1,5]}');
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (8, 'Mesa Elevatoria', 'ME', '{"options": [1,2,3,4,5]}');
-INSERT INTO tb_products (id, name, abbreviation, options) VALUES (9, 'Mesa Extra Baixa', 'MEB', '{"options": [1,2,3,4,5], "rules": {"formato": [["","U"], ["","E"]]}}');
+INSERT INTO tb_products (id, name, abbreviation, options, rules) VALUES (9, 'Mesa Extra Baixa', 'MEB', '{"options": [1,2,3,4,5]}', '{"rules": {"formato": [["","U"], ["","E"]]}}');
 
 CREATE TABLE tb_finish (
     id INT PRIMARY KEY,
@@ -87,10 +88,10 @@ CREATE TABLE tb_drive (
     id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     abbreviation VARCHAR(20) NOT NULL,
-    options TEXT
+    rules TEXT
 );
 
-INSERT INTO tb_drive (id, name, abbreviation, options) VALUES (0, 'Elétrico hidráulico','EH', '{"rules": {"voltagem": [["","220V"], ["","380V"], ["","440V"]], "tipo": [["","Trifasico"], ["","Monofasico"], ["","Bifasico"]]}}');
+INSERT INTO tb_drive (id, name, abbreviation, rules) VALUES (0, 'Elétrico hidráulico','EH', '{"rules": {"voltagem": [["","220V"], ["","380V"], ["","440V"]], "tipo": [["","Trifasico"], ["","Monofasico"], ["","Bifasico"]]}}');
 INSERT INTO tb_drive (id, name, abbreviation) VALUES (1, 'Hidráulico manual','HM');
 INSERT INTO tb_drive (id, name, abbreviation) VALUES (2, 'Mola a gás','MG');
 INSERT INTO tb_drive (id, name, abbreviation) VALUES (3, 'Mola Helicoidal','MH');
@@ -99,11 +100,11 @@ CREATE TABLE tb_optional (
     id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     abbreviation VARCHAR(20) NOT NULL,
-    options TEXT
+    rules TEXT
 );
 
 INSERT INTO tb_optional (id, name, abbreviation) VALUES (0, 'Guarda corpo Fixo','GC FIX');
-INSERT INTO tb_optional (id, name, abbreviation, options) VALUES (1, 'Luminária para doca','*','{"rules": {"watts": [["","30W"], ["","100W"]], "dimenção": [["padrão","600x600mm"], ["especial",""]]}}');
+INSERT INTO tb_optional (id, name, abbreviation, rules) VALUES (1, 'Luminária para doca','*','{"rules": {"watts": [["","30W"], ["","100W"]], "dimenção": [["padrão","600x600mm"], ["especial",""]]}}');
 INSERT INTO tb_optional (id, name, abbreviation) VALUES (2, 'Guarda corpo Romovivel','GC REM');
 INSERT INTO tb_optional (id, name, abbreviation) VALUES (3, 'Abas laterais','AL');
 INSERT INTO tb_optional (id, name, abbreviation) VALUES (4, 'NR10','N1');
@@ -113,7 +114,7 @@ INSERT INTO tb_optional (id, name, abbreviation) VALUES (7, 'PROTEÇÃO UH','PRO
 INSERT INTO tb_optional (id, name, abbreviation) VALUES (8, 'BARRA ANTI ESMAGAMENTO','BAI');
 INSERT INTO tb_optional (id, name, abbreviation) VALUES (9, 'Guarda corpo Rebativel','CG REB');
 INSERT INTO tb_optional (id, name, abbreviation) VALUES (10, 'Batente','*');
-INSERT INTO tb_optional (id, name, abbreviation, options) VALUES (11, 'Escada para Doca','*','{"rules": {"dimenção": [["padrão","1200mm"], ["especial",""]]}}');
+INSERT INTO tb_optional (id, name, abbreviation, rules) VALUES (11, 'Escada para Doca','*','{"rules": {"dimenção": [["padrão","1200mm"], ["especial",""]]}}');
 INSERT INTO tb_optional (id, name, abbreviation) VALUES (12, 'Calço para Rodas','*');
 INSERT INTO tb_optional (id, name, abbreviation) VALUES (13, 'Guia de Rodas','*');
 INSERT INTO tb_optional (id, name, abbreviation) VALUES (14, 'Sinaleiro de Doca','SD');
