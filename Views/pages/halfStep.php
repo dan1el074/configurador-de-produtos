@@ -1,12 +1,25 @@
+<?php
+    // $linkStep2 = "";
+    // $linkStep3 = "";
+
+    // if(isset($_SESSION['order']) && isset($_SESSION['product_id']) && isset($_SESSION['finish_id'])) {
+    //     $linkStep2 = "href=\"step2\"";
+    // }
+    
+    // if(isset($_SESSION['weight_id']) && isset($_SESSION['length_id']) && isset($_SESSION['drive_id'])) {
+    //     $linkStep2 = "href=\"step2\"";
+    // }
+?>
+
 <section class="productForm">
     <h1>Gerador de nomenclatura</h1>
 
     <div class="nav step1">
-        <div class="ball"></div>
+        <a class="ball"></a>
         <div class="row"></div>
-        <div class="ball"></div>
+        <a class="ball"></a>
         <div class="row"></div>
-        <div class="ball"></div>
+        <a class="ball"></a>
     </div>
 
     <form action="" method="post">

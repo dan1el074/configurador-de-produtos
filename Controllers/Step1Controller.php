@@ -6,7 +6,7 @@
     use Views\popUpView;
     use Views\MainView;
 
-    final class HomeController extends Controller{
+    final class Step1Controller extends Controller{
         private ProdutoService $produtoService;
         private AcabamentoService $acabamentoService;
 
@@ -19,9 +19,6 @@
                 $_SESSION["order"] = $_POST['order'];
                 $_SESSION["product_id"] = $_POST['product_id'];
                 $_SESSION["finish_id"] = $_POST['finish_id'];
-
-                $this->view = new MainView('halfStep');
-                return;
             }
             
             if(isset($_POST['halfStepAction'])) {
@@ -38,8 +35,7 @@
                 exit;
             }
 
-            session_unset();
-            $this->view = new MainView('home');
+            $this->view = new MainView('halfStep');
         }
 
         public function execute(): void {

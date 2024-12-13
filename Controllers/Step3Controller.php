@@ -11,17 +11,20 @@
         private OpcionaisService $opcionaisService;
 
         public function __construct() {
+            session_start();
             $this->produtoService = new ProdutoService();
             $this->opcionaisService = new OpcionaisService();
+
+            if (!isset($_SESSION["weight_id"]) || !isset($_SESSION["length_id"]) || !isset($_SESSION["width_id"]) || !isset($_SESSION["drive_id"])) {
+                echo "<script>window.location.href='step2';</script>";
+                exit;
+            }
 
             if(isset($_POST['action'])) {
                 $newArray = [... $_POST];
                 array_pop($newArray);
                 $optionalsId = array_values(array_map('intval', $newArray));
                 $_SESSION['optionalsId'] = $optionalsId;
-
-                $this->view = new MainView('halfStep3');
-                return;
             }
             
             $this->view = new MainView('step3');
@@ -98,7 +101,7 @@
             foreach ($opcionaisArray as $key => $opcional) { 
                 foreach ($resultsId as $resultId) {
                     if ($opcional->getId() == $resultId) {
-                        if($opcional->getRules() !== null) {
+                        if(count(get_object_vars($opcional->getRules()))) {
                             $find = true;
                             $optionals[] = $opcional;
                         }                    

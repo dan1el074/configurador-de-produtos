@@ -4,6 +4,7 @@
     final class LoginController extends Controller{
 
         public function __construct() {
+            session_start();
             $this->view = new \Views\MainView('login');
         }
 

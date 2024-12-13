@@ -100,21 +100,22 @@ CREATE TABLE tb_optional (
     id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     abbreviation VARCHAR(20) NOT NULL,
-    rules TEXT
+    rules TEXT,
+    show_in_result BOOLEAN NOT NULL
 );
 
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (0, 'Guarda corpo Fixo','GC FIX');
-INSERT INTO tb_optional (id, name, abbreviation, rules) VALUES (1, 'Luminária para doca','*','{"watts": [["","30W"], ["","100W"]], "dimenção": [["padrão","600x600mm"], ["especial",""]]}');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (2, 'Guarda corpo Romovivel','GC REM');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (3, 'Abas laterais','AL');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (4, 'NR10','N1');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (5, 'NR12','N2');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (6, 'Pedestal','PED');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (7, 'PROTEÇÃO UH','PROT UH');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (8, 'BARRA ANTI ESMAGAMENTO','BAI');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (9, 'Guarda corpo Rebativel','CG REB');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (10, 'Batente','*');
-INSERT INTO tb_optional (id, name, abbreviation, rules) VALUES (11, 'Escada para Doca','*','{"dimenção": [["padrão","1200mm"], ["especial",""]]}');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (12, 'Calço para Rodas','*');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (13, 'Guia de Rodas','*');
-INSERT INTO tb_optional (id, name, abbreviation) VALUES (14, 'Sinaleiro de Doca','SD');
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (0, 'Guarda corpo Fixo','GC FIX', TRUE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result, rules) VALUES (1, 'Luminária para doca','*', FALSE,'{"watts": [["","30W"], ["","100W"]], "dimenção": [["padrão","600x600mm"], ["especial",""]]}');
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (2, 'Guarda corpo Romovivel','GC REM', TRUE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (3, 'Abas laterais','AL', TRUE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (4, 'NR10','N1', TRUE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (5, 'NR12','N2', TRUE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (6, 'Pedestal','PED', FALSE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (7, 'PROTEÇÃO UH','PROT UH', FALSE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (8, 'BARRA ANTI ESMAGAMENTO','BAI', FALSE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (9, 'Guarda corpo Rebativel','CG REB', TRUE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (10, 'Batente','*', FALSE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result, rules) VALUES (11, 'Escada para Doca','*', FALSE, '{"dimenção": [["padrão","1200mm"], ["especial",""]]}');
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (12, 'Calço para Rodas','*', FALSE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (13, 'Guia de Rodas','*', FALSE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (14, 'Sinaleiro de Doca','SD', FALSE);

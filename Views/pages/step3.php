@@ -2,11 +2,11 @@
     <h1>Gerador de nomenclatura</h1>
 
     <div class="nav step3">
-        <div class="ball"></div>
+        <a class="ball"></a>
         <div class="row"></div>
-        <div class="ball"></div>
+        <a class="ball"></a>
         <div class="row"></div>
-        <div class="ball"></div>
+        <a class="ball"></a>
     </div>
 
     <form action="" method="post">
@@ -19,10 +19,17 @@
         <?php 
             $contador = 0;
             foreach ($atributes['opcionais'] as $key => $atribute) {
+                $checked = "";
+                if(isset($_SESSION['optionalsId'])) {
+                    if(in_array($atribute->getId(), $_SESSION['optionalsId'])) {
+                        $checked = "checked";
+                    }
+                }
+
                 echo "
                     <label class=\"container\">
                         <div class=\"fix\"><div>{$atribute->getName()}</div> <div>{$atribute->getAbbreviation()}</div></div>
-                        <input type=\"checkbox\" id=\"{$atribute->getId()}\" name=\"optionalRuleValue{$contador}\" value=\"{$atribute->getId()}\">
+                        <input type=\"checkbox\" id=\"{$atribute->getId()}\" name=\"optionalRuleValue{$contador}\" value=\"{$atribute->getId()}\" {$checked}>
                         <span class=\"checkmark\"></span>
                     </label for=\"{$atribute->getId()}\">
                 ";

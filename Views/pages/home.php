@@ -2,11 +2,11 @@
     <h1>Gerador de nomenclatura</h1>
 
     <div class="nav step1">
-        <div class="ball"></div>
+        <a class="ball"></a>
         <div class="row"></div>
-        <div class="ball"></div>
+        <a class="ball"></a>
         <div class="row"></div>
-        <div class="ball"></div>
+        <a class="ball"></a>
     </div>
 
     <form action="" method="post">

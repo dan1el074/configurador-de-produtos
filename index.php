@@ -10,8 +10,7 @@
             die();
         }
     });
-
-    session_start();
+    
     $app = new Application();
     $app->execute();
 ?>

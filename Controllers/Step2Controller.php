@@ -17,20 +17,23 @@
         private AcionamentoService $acionamentoService;
 
         public function __construct() {
+            session_start();
             $this->produtoService = new ProdutoService();
             $this->cargaService = new CargaService();
             $this->comprimentoService = new ComprimentoService();
             $this->larguraService = new LarguraService();
             $this->acionamentoService = new AcionamentoService();
 
+            if (!isset($_SESSION["order"]) || !isset($_SESSION["product_id"]) || !isset($_SESSION["finish_id"])) {
+                echo "<script>window.location.href='step1';</script>";
+                exit;
+            }
+
             if(isset($_POST['action'])) {
                 $_SESSION["weight_id"] = $_POST['weight_id'];
                 $_SESSION["length_id"] = $_POST['length_id'];
                 $_SESSION["width_id"] = $_POST['width_id'];
                 $_SESSION["drive_id"] = $_POST['drive_id'];
-
-                $this->view = new MainView('halfStep2');
-                return;
             }
 
             $this->view = new MainView('step2');
@@ -76,7 +79,7 @@
             $find = false;
             foreach ($acionamentoArray as $key => $acionamento) { 
                 if ($acionamento->getId() == $driveId) {
-                    if($acionamento->getRules() !== null) {
+                    if(count(get_object_vars($acionamento->getRules()))) {
                         $find = true;
                         $popUp = new popUpView();
                         $popUp->render($acionamento);
