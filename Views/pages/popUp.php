@@ -7,7 +7,8 @@
         $title = ucfirst($title);
         $ruleInput .= "
             <label>{$title}</label>
-            <select name=\"ruleSelected{$counter}\" required>
+            <div>
+            <select class=\"rule-select\" name=\"ruleSelected{$counter}\" required>
             <option value=\"\" disabled selected>Selecione</option>
         ";
 
@@ -25,7 +26,7 @@
             }
         }
 
-        $ruleInput .= "</select>";
+        $ruleInput .= "</select></div>";
         $counter++;
     }
 
@@ -53,6 +54,27 @@
                     background.remove();
                     popUp.remove()
                 })
+
+                const selects = document.querySelectorAll('.rule-select');
+                selects.forEach(select => {
+                    select.addEventListener('change', function() {
+                        if(select.value.split(\",\")[select.value.split(\",\").length - 2] == \"especial\") {
+                            console.log(\"especial\");
+
+                            let input = document.createElement('input');
+                            input.classList.add('especialInput');
+                            input.placeholder = 'Valor';
+                            select.parentNode.append(input);
+                        }
+
+                        if(!select.value.split(\",\")[select.value.split(\",\").length - 2] == \"especial\") {
+                            console.log(\"outra opção\");
+
+                            select.parentNode.querySelector('');
+                        }
+                    });
+                });
+
             </script>
         ";
 
