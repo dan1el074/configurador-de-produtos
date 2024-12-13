@@ -40,7 +40,7 @@
                 }
             }
 
-            $optionsArray = $productArray[$index]->getOptions()->options;
+            $optionsArray = $productArray[$index]->getOptions();
             $opcionaisArrayFiltered = [];
 
             foreach($optionsArray as $key => $value) {
