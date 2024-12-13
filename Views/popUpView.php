@@ -8,11 +8,11 @@
             $this->popUp = $popUp;
         }
         
-        public function render(object $rules): void {
+        public function render(object $object): void {
             include('pages/'.$this->popUp.'.php');
         }
 
-        public function renderWithArray(array $arrayRules): void {
+        public function renderWithArray(array $arrayOptionals): void {
             include('pages/'.$this->popUp.'.php');
         }
     }

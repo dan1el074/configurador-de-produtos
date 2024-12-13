@@ -1,32 +1,39 @@
 <?php
     $ruleInput = "";
+    $counter = 0;
 
-    foreach($arrayRules as $key => $rules) {
-        $arrayRules = get_object_vars($rules->rules);
-    
-        foreach ($arrayRules as $key => $value) {
-            $title = ucfirst($key);
-            $ruleInput .= "<input type=\"hidden\" name=\"ruleName\" value=\"{$key}\">
-                    <label>{$title}</label>
-                    <select name=\"ruleSelect\">
-                    <option value=\"\" disabled selected>Selecione</option>";
+    foreach($arrayOptionals as $key=>$object) {
+        $arrayRules = get_object_vars($object->getOptions()->rules);
+        $counter2 = 0;
+        $ruleInput .= "<h4>{$object->getName()}</h4>";
+        
+        foreach ($arrayRules as $title => $rule) {
+            $title = ucfirst($title);
+            $ruleInput .= "
+                <label>{$title}</label>
+                <select name=\"ruleSelected-{$counter}-{$counter2}\" required>
+                <option value=\"\" disabled selected>Selecione</option>
+            ";
 
-            foreach ($value as $key2 => $value2) {
-                $item = ucfirst($value2[0]);
+            foreach ($rule as $key => $optionArray) {
+                $item = ucfirst($optionArray[0]);
 
-                if($value2[0] && $value2[1]) {
-                    $ruleInput .= "<option value=\"{$value2[1]}\">{$item} - {$value2[1]}</option>";
-                } 
-                if($value2[0] && !$value2[1]) {
-                    $ruleInput .= "<option value=\"{$value2[0]}\">{$item}</option>";
+                if($optionArray[0] && $optionArray[1]) {
+                    $ruleInput .= "<option value=\"{$object->getId()},{$title},{$optionArray[0]},{$optionArray[1]}\">{$item} - {$optionArray[1]}</option>";
                 }
-                if(!$value2[0] && $value2[1]) {
-                    $ruleInput .= "<option value=\"{$value2[1]}\">{$value2[1]}</option>";
+                if($optionArray[0] && !$optionArray[1]) {
+                    $ruleInput .= "<option value=\"{$object->getId()},{$title},{$optionArray[0]},\">{$item}</option>";
+                }
+                if(!$optionArray[0] && $optionArray[1]) {
+                    $ruleInput .= "<option value=\"{$object->getId()},{$title},,{$optionArray[1]}\">{$optionArray[1]}</option>";
                 }
             }
 
             $ruleInput .= "</select>";
+            $counter2++;
         }
+
+        $counter++;
     }
 
     $text = "

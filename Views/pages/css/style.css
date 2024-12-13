@@ -36,6 +36,12 @@ h3 {
   font-weight: 600;
 }
 
+h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
 p {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -462,6 +468,10 @@ option[value=""] {
   margin-bottom: 10px;
 }
 
+.pop-up h4 {
+  margin-top: 15px;
+}
+
 .pop-up_form {
   display: flex;
   flex-direction: column;
@@ -469,6 +479,15 @@ option[value=""] {
   text-align: start;
   padding: 40px 50px 40px;
   border-radius: 10px;
+}
+
+.pop-up_form label {
+  padding-left: 10px;
+}
+
+.pop-up_form input,
+.pop-up_form select {
+  margin-left: 10px;
 }
 
 footer {

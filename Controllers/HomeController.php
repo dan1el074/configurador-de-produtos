@@ -24,8 +24,14 @@
             }
             
             if(isset($_POST['halfStepAction'])) {
-                $_SESSION["productRuleName"] .= ", " . $_POST['ruleName'];
-                $_SESSION["productRuleValue"] .= ", " . $_POST['ruleSelect'];
+                array_pop($_POST);
+                $rulesResult = [];
+
+                foreach($_POST as $key=>$value) {
+                    $rulesResult[] = explode(",", $value);
+                }
+
+                $_SESSION['productRules'] = $rulesResult;
 
                 echo "<script>window.location.href='step2';</script>";
                 exit;
@@ -56,12 +62,12 @@
 
         public function showPopUp(array $productArray, int $productId): bool {
             $find = false;
-            foreach ($productArray as $key => $value) { 
-                if ($value->getId() == $productId) {
-                    if(isset($value->getOptions()->rules)) {
+            foreach ($productArray as $key => $product) { 
+                if ($product->getId() == $productId) {
+                    if(isset($product->getOptions()->rules)) {
                         $find = true;
                         $popUp = new popUpView();
-                        $popUp->render($value->getOptions());
+                        $popUp->render($product);
                     }                    
 
                     break;

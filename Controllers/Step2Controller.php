@@ -49,8 +49,14 @@
             }
             
             if(isset($_POST['halfStepAction'])) {
-                $_SESSION["driveRuleName"] .= ", " . $_POST['ruleName'];
-                $_SESSION["driveRuleValue"] .= ", " . $_POST['ruleSelect'];
+                array_pop($_POST);
+                $rulesResult = [];
+
+                foreach($_POST as $key=>$value) {
+                    $rulesResult[] = explode(",", $value);
+                }
+
+                $_SESSION['driveRules'] = $rulesResult;
 
                 echo "<script>window.location.href='step3';</script>";
                 exit;
@@ -73,7 +79,7 @@
                     if(isset($acionamento->getOptions()->rules)) {
                         $find = true;
                         $popUp = new popUpView();
-                        $popUp->render($acionamento->getOptions());
+                        $popUp->render($acionamento);
                     }                    
 
                     break;

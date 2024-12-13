@@ -61,9 +61,22 @@
             }       
             
             if(isset($_POST['halfStepAction'])) {
-                $_SESSION["optionalsRuleName"] .= ", " . $_POST['ruleName'];
-                $_SESSION["optionalsRuleValue"] .= ", " . $_POST['ruleSelect'];
+                array_pop($_POST);
 
+                $_POST = array_map(function($rule) {
+                    return explode(",", $rule);
+                }, $_POST);
+
+                $newPOST = [];
+
+                foreach ($_POST as $key => $value) {
+                    preg_match('/ruleSelected-(\d+)-\d+/', $key, $matches);
+                    $groupIndex = $matches[1];
+                    
+                    $newPOST[$groupIndex][] = $value;
+                }
+
+                ksort($newPOST);
                 echo "<script>window.location.href='finish';</script>";
                 exit;
             }       
@@ -78,14 +91,14 @@
         
         public function showPopUp(array $opcionaisArray, array $resultsId): bool {
             $find = false;
-            $rules = [];
+            $optionals = [];
 
             foreach ($opcionaisArray as $key => $opcional) { 
                 foreach ($resultsId as $resultId) {
                     if ($opcional->getId() == $resultId) {
                         if(isset($opcional->getOptions()->rules)) {
                             $find = true;
-                            $rules[] = $opcional->getOptions();
+                            $optionals[] = $opcional;
                         }                    
                         
                         break;
@@ -95,7 +108,7 @@
 
             if($find) {
                 $popUp = new popUpView('popUp2');
-                $popUp->renderWithArray($rules);
+                $popUp->renderWithArray($optionals);
             }
 
             return $find;

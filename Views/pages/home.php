@@ -25,7 +25,7 @@
         <select name="finish_id" id="finish" required>
             <option value="" disabled selected>Selecione o acabamento</option>
             <?php foreach($atributes['acabamentos'] as $finish) { ?>
-                <option value="<?= $finish->getId() ?>"><?= ($finish->getName() ? $finish->getName() . " - " : "") . $finish->getAbbreviation()?></option>
+                <option value="<?= $finish->getId() ?>"><?= ucfirst($finish->getName()) . ($finish->getAbbreviation() ? " - " . $finish->getAbbreviation() : "")?></option>
             <?php } ?>
         </select>
 
