@@ -5,13 +5,13 @@
         private int $id;
         private string $name;
         private string $abbreviation;
-        private object $options;
+        private object $rules;
 
-        public function __construct(int $id, string $name, string $abbreviation, object $options) {
+        public function __construct(int $id, string $name, string $abbreviation, object $rules) {
             $this->id = $id;
             $this->name = $name;
             $this->abbreviation = $abbreviation;
-            $this->options = $options;
+            $this->rules = $rules;
         }
 
         public function getId(): string {
@@ -34,12 +34,12 @@
             $this->abbreviation = $abbreviation;
         }
 
-        public function getOptions(): object {
-            return $this->options;
+        public function getRules(): object {
+            return $this->rules;
         }
 
-        public function setOptions(object $options): void {
-            $this->options = $options;
+        public function setRules(object $rules): void {
+            $this->rules = $rules;
         }
 
     }

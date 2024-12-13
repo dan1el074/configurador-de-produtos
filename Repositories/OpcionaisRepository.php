@@ -24,7 +24,7 @@
 
             $arr = [];
             foreach($result as $row) {
-                $optional = new Opcionais($row["id"], $row["name"], $row["abbreviation"], isset($row["options"]) ? json_decode($row["options"]) : json_decode('{}'));
+                $optional = new Opcionais($row["id"], $row["name"], $row["abbreviation"], isset($row["rules"]) ? json_decode($row["rules"]) : json_decode('{}'));
                 $arr[] = $optional;
             }
 

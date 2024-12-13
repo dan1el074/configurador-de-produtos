@@ -3,7 +3,7 @@
     $counter = 0;
 
     foreach($arrayOptionals as $key=>$object) {
-        $arrayRules = get_object_vars($object->getOptions()->rules);
+        $arrayRules = get_object_vars($object->getRules());
         $counter2 = 0;
         $ruleInput .= "<h4>{$object->getName()}</h4>";
         

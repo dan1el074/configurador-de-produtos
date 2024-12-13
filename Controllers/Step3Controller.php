@@ -77,6 +77,8 @@
                 }
 
                 ksort($newPOST);
+                $_SESSION['optionalRules'] = $newPOST;
+                
                 echo "<script>window.location.href='finish';</script>";
                 exit;
             }       
@@ -96,7 +98,7 @@
             foreach ($opcionaisArray as $key => $opcional) { 
                 foreach ($resultsId as $resultId) {
                     if ($opcional->getId() == $resultId) {
-                        if(isset($opcional->getOptions()->rules)) {
+                        if($opcional->getRules() !== null) {
                             $find = true;
                             $optionals[] = $opcional;
                         }                    
