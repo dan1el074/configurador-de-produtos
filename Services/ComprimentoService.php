@@ -1,7 +1,8 @@
 <?php 
     namespace Services;
 
-    use Repositories\ComprimentoRepository;
+use Entities\Comprimento;
+use Repositories\ComprimentoRepository;
 
     class ComprimentoService {
 
@@ -13,6 +14,10 @@
 
         public function findAll(): array {
             return $this->repository->findAll();
+        }
+
+        public function findById(int $id): Comprimento {
+            return $this->repository->findById($id);
         }
 
     }

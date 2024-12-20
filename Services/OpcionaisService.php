@@ -15,6 +15,10 @@
             return $this->repository->findAll();
         }
 
+        public function findById(array $ids): array {
+            return $this->repository->findById($ids);
+        }
+
     }
 
 ?>

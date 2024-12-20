@@ -1,6 +1,8 @@
-<?php 
+<?php
+
     namespace Services;
 
+    use Entities\Acabamento;
     use Repositories\AcabamentoRepository;
 
     class AcabamentoService {
@@ -15,6 +17,9 @@
             return $this->repository->findAll();
         }
 
+        public function findById(int $id): Acabamento {
+            return $this->repository->findById($id);
+        }
     }
 
 ?>

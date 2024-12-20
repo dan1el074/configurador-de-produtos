@@ -6,12 +6,14 @@
         private string $name;
         private string $abbreviation;
         private object $rules;
+        private bool $showInResult;
 
-        public function __construct(int $id, string $name, string $abbreviation, object $rules) {
+        public function __construct(int $id, string $name, string $abbreviation, object $rules, bool $showInResult) {
             $this->id = $id;
             $this->name = $name;
             $this->abbreviation = $abbreviation;
             $this->rules = $rules;
+            $this->showInResult = $showInResult;
         }
 
         public function getId(): string {
@@ -40,6 +42,14 @@
 
         public function setRules($rules): void {
             $this->rules = $rules;
+        }
+
+        public function getShowInResult(): bool {
+            return $this->showInResult;
+        }
+
+        public function setShowInResult($show): void {
+            $this->showInResult = $show;
         }
     }
 ?>

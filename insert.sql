@@ -10,7 +10,7 @@ CREATE TABLE tb_products (
     rules TEXT
 );
 
-INSERT INTO tb_products (id, name, abbreviation, options, rules) VALUES (0, 'Niveladora de Docas Avançada', 'NDA', '1,2,3,4,5,11', '{"fosso": [["padrão","F500 P500"], ["especial",""]], "teste1": [["padrão","testando!"], ["especial",""]]}');
+INSERT INTO tb_products (id, name, abbreviation, options, rules) VALUES (0, 'Niveladora de Docas Avançada', 'NDA', '1,2,3,4,5,11', '{"fosso": [["padrão","F500 P500"], ["especial",""]], "teste": [["padrão","teste1"], ["especial",""]]}');
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (1, 'Niveladora de Docas Embutida', 'NDE', '0,1,5');
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (2, 'Niveladora de Doca Movel', 'NDM', '0,1,5');
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (3, 'Mesa Elevatória Extra Baixa', 'MEB', '0,1,5');

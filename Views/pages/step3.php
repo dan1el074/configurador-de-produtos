@@ -12,7 +12,7 @@
     <form action="" method="post">
         <h3>Selecione os opcionais:</h3>
         <label class="container mestre">
-            <div class="fix">Todes</div>
+            <div class="fix">Todos</div>
             <input type="checkbox" id="selectAll">
             <span class="checkmark"></span>
         </label for="selectAll">

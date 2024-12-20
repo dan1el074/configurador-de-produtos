@@ -1,7 +1,8 @@
 <?php 
     namespace Services;
 
-    use Repositories\AcionamentoRepository;
+use Entities\Acionamento;
+use Repositories\AcionamentoRepository;
 
     class AcionamentoService {
 
@@ -13,6 +14,10 @@
 
         public function findAll(): array {
             return $this->repository->findAll();
+        }
+
+        public function findById(int $id): Acionamento {
+            return $this->repository->findById($id);
         }
 
     }

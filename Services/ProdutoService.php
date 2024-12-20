@@ -1,6 +1,7 @@
 <?php 
     namespace Services;
 
+    use Entities\Produto;
     use Repositories\ProdutoRepository;
 
     class ProdutoService {
@@ -13,6 +14,10 @@
 
         public function findAll(): array {
             return $this->repository->findAll();
+        }
+
+        public function findById(int $id): Produto {
+            return $this->repository->findById($id);
         }
 
     }

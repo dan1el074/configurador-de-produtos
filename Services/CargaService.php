@@ -1,6 +1,7 @@
 <?php 
     namespace Services;
 
+    use Entities\Carga;
     use Repositories\CargaRepository;
 
     class CargaService {
@@ -13,6 +14,10 @@
 
         public function findAll(): array {
             return $this->repository->findAll();
+        }
+
+        public function findById(int $id): Carga {
+            return $this->repository->findById($id);
         }
 
     }

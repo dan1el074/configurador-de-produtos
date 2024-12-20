@@ -15,7 +15,7 @@
         }
 
         public function findAll(): array {
-            $sql = 'SELECT * FROM tb_length';
+            $sql = "SELECT * FROM `tb_length`";
             
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -29,6 +29,25 @@
             }
 
             return $arr;
+        }
+
+        public function findById(int $id): Comprimento {
+            $sql = "SELECT * FROM `tb_length` WHERE `id` = $id";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $arr = [];
+            foreach($result as $row) {
+                $produto = new Comprimento(
+                    $row["id"], 
+                    $row["name"], 
+                    $row["abbreviation"]
+                );
+                $arr[] = $produto;
+            }
+
+            return $arr[0];
         }
     }
 ?>
