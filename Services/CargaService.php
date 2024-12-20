@@ -2,11 +2,10 @@
     namespace Services;
 
     use Repositories\CargaRepository;
-    use Repositories\Repository;
 
     class CargaService {
 
-        private Repository $repository;
+        private CargaRepository $repository;
 
         public function __construct() {
             $this->repository = new CargaRepository();

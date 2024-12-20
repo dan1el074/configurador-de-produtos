@@ -2,11 +2,10 @@
     namespace Services;
 
     use Repositories\AcabamentoRepository;
-    use Repositories\Repository;
 
     class AcabamentoService {
 
-        private Repository $repository;
+        private AcabamentoRepository $repository;
 
         public function __construct() {
             $this->repository = new AcabamentoRepository();

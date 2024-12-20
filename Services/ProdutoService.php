@@ -1,12 +1,11 @@
 <?php 
     namespace Services;
 
-    use Repositories\Repository;
     use Repositories\ProdutoRepository;
 
     class ProdutoService {
 
-        private Repository $repository;
+        private ProdutoRepository $repository;
 
         public function __construct() {
             $this->repository = new ProdutoRepository();

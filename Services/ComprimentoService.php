@@ -2,11 +2,10 @@
     namespace Services;
 
     use Repositories\ComprimentoRepository;
-    use Repositories\Repository;
 
     class ComprimentoService {
 
-        private Repository $repository;
+        private ComprimentoRepository $repository;
 
         public function __construct() {
             $this->repository = new ComprimentoRepository();

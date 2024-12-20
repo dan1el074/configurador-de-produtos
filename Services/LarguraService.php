@@ -2,11 +2,10 @@
     namespace Services;
 
     use Repositories\LarguraRepository;
-    use Repositories\Repository;
 
     class LarguraService {
 
-        private Repository $repository;
+        private LarguraRepository $repository;
 
         public function __construct() {
             $this->repository = new LarguraRepository();

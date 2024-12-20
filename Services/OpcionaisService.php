@@ -1,12 +1,11 @@
 <?php 
     namespace Services;
 
-    use Repositories\Repository;
     use Repositories\OpcionaisRepository;
 
     class OpcionaisService {
 
-        private Repository $repository;
+        private OpcionaisRepository $repository;
 
         public function __construct() {
             $this->repository = new OpcionaisRepository();
