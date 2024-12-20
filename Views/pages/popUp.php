@@ -57,23 +57,57 @@
 
                 const selects = document.querySelectorAll('.rule-select');
                 selects.forEach(select => {
+                    let especialInput = false;
+                    let selectName = \"\";
+
                     select.addEventListener('change', function() {
+                        if(especialInput) {
+                            select.parentNode.querySelector('.especialInput').remove();
+                            select.name = selectName;
+
+                            especialInput = false;
+                            return;
+                        }
+
                         if(select.value.split(\",\")[select.value.split(\",\").length - 2] == \"especial\") {
-                            console.log(\"especial\");
+                            selectName = select.name;
+                            select.name = \"\";
 
                             let input = document.createElement('input');
                             input.classList.add('especialInput');
                             input.placeholder = 'Valor';
+                            input.required = true;
+                            input.setAttribute('autocomplete', 'off');
+                            input.name = selectName;
                             select.parentNode.append(input);
-                        }
-
-                        if(!select.value.split(\",\")[select.value.split(\",\").length - 2] == \"especial\") {
-                            console.log(\"outra opção\");
-
-                            select.parentNode.querySelector('');
+                            especialInput = true;
                         }
                     });
                 });
+
+                const formButton = document.querySelector('button[name=\"halfStepAction\"]');
+                formButton.addEventListener(\"click\", event => {
+                    let container = formButton.parentNode;
+                    container = container.parentNode;
+                    const result = container.querySelectorAll('.especialInput');
+                    
+                    if(!result.length) {
+                        return;
+                    }
+
+                    result.forEach(currentResult => {
+                        if(!currentResult.value) {
+                            return;
+                        }
+
+                        const currentContainer = currentResult.parentNode;
+                        const options = currentContainer.querySelectorAll('option');
+                        const referenceValue = options[options.length - 1].value;
+                        const final = referenceValue + currentResult.value;
+                        currentResult.style.color = \"transparent\";
+                        currentResult.value = final;
+                    })
+                })
 
             </script>
         ";
