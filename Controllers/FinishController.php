@@ -1,11 +1,33 @@
 <?php 
     namespace Controllers;
 
+    use Services\AcabamentoService;
+    use Services\AcionamentoService;
+    use Services\CargaService;
+    use Services\ComprimentoService;
+    use Services\LarguraService;
+    use Services\OpcionaisService;
+    use Services\ProdutoService;
+
     final class FinishController extends Controller{
+        private ProdutoService $produtoService;
+        private AcabamentoService $acabamentoService;
+        private CargaService $cargaService;
+        private ComprimentoService $comprimentoService;
+        private LarguraService $larguraService;
+        private AcionamentoService $acionamentoService;
+        private OpcionaisService $opcionaisService;
 
         public function __construct() {
             session_start();
             $this->view = new \Views\MainView('finish');
+            $this->produtoService = new ProdutoService();
+            $this->acabamentoService = new AcabamentoService();
+            $this->cargaService = new CargaService();
+            $this->comprimentoService = new ComprimentoService();
+            $this->larguraService = new LarguraService();
+            $this->acionamentoService = new AcionamentoService();
+            $this->opcionaisService = new OpcionaisService();
 
             if (!isset($_SESSION["weight_id"]) || !isset($_SESSION["length_id"]) || !isset($_SESSION["width_id"]) || !isset($_SESSION["drive_id"])) {
                 echo "<script>window.location.href='step3';</script>";
