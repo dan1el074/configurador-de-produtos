@@ -15,7 +15,7 @@
                 <td>#{$count}</td>
                 <td>{$width->getName()}</td>
                 <td>{$width->getAbbreviation()}</td>
-                <td></td>
+                <td><button class=\"icon\"><img src=\"" . INCLUDE_PATH_FULL . "assets/images/delete-icon.png\"></button></td>
             </tr>
         ";
         $count++;

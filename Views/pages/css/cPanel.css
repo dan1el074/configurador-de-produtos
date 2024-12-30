@@ -137,74 +137,22 @@ tr:nth-child(odd) {
     display: none;
 }
 
-.cpainel_btn:hover {
+.cpainel__table .icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.cpainel__table .icon {
+    background-color: transparent;
+}
+
+.cpainel__table .icon:hover {
+    transition: .3s;
     transform: scale(1.1);
-    transition: all 0.2s;
 }
 
-.btn__editar {
-    background-image: url(../img/icon-edit.png);
-    margin-right: 4px;
-    width: 25px;
-    height: 25px;
-}
-
-.btn__remover {
-    background-image: url(../img/icon-remove.png);
-    width: 25px;
-    height: 25px;
-}
-
-.btn__adicionar {
-    background-image: url(../img/icon-add.png);
-    width: 25px;
-    height: 25px;
-    margin: 18px 20px 0;
-}
-
-.btn__adicionar-menor {
-    background-image: url(../img/icon-add.png);
-    width: 23px;
-    height: 23px;
-    margin: 10px 0;
-}
-
-.btn__remover-menor {
-    background-image: url(../img/icon-remove.png);
-    width: 23px;
-    height: 23px;
-}
-
-.btn_save {
-    background-color: white;
-    color: #E56620;
-    border: 1.9px solid #E56620;
-    border-radius: 13px;
-    font-weight: 500;
-    padding: 8px 16px;
-    cursor: pointer;
-}
-
-.btn_save:hover {
-    background-color: #E56620;
-    color: white;
-    border: 1.9px solid white;
-}
-
-.btn_cancel {
-    background-color: white;
-    color: red;
-    border-radius: 13px;
-    border: 1.9px solid red;
-    padding: 8px 16px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.btn_cancel:hover {
-    background-color: red;
-    color: white;
-    border: 1.9px solid white;
+.cpainel__table .icon::before {
+    display: none;
 }
 
 @media only screen and (max-width: 600px) {
