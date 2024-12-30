@@ -1,0 +1,258 @@
+body {
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.base-cpainel {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 18% 82%;
+    grid-template-rows: auto;
+    grid-template-areas: "aside conteudo";
+    margin: 0 0 0 50px;
+}
+
+.cpainel__aside {
+    padding: 0 0 50px 0;
+}
+
+.cpainel__aside form button {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    margin: 0;
+    background-color: transparent;
+    border-radius: 4px 0 0 4px;
+    border: none;
+    font-weight: 410;
+    line-height: inherit;
+    text-align: left;
+    color: #2e313b;
+    cursor: pointer;
+}
+
+.cpainel__aside form button::before {
+    display: none;
+}
+
+.cpainel__aside form button:hover {
+    background-color: #f3f5f5;
+}
+
+.cpainel__aside .active {
+    background-color: #f3f5f5 !important;
+    border-left: 4px solid #0e1472 !important;
+}
+
+.cpainel__conteudo {
+    background-color: #f3f5f5;
+    padding: 18px 18px 30px;
+}
+
+.cpainel__conteudo h4 {
+    line-height: 1.500;
+    color: #2e313b;
+    margin-bottom: 8px;
+}
+
+.cpainel__conteudo span.obs {
+    font-family: "Lora", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #747c82;
+}
+
+.cpainel__table {
+    background-color: white;
+    width: 100%;
+    padding: 22px;
+    margin-top: 19px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 29px -8px rgba(0, 0, 0, 0.12);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th {
+    background-color: #eff1f3;
+    color: #747c82;
+    font-family: "Lora", sans-serif;
+    font-weight: 500;
+    text-align: center;
+    padding: 8px;
+}
+
+td {
+    padding: 8px;
+    color: #2e313b;
+    font-family: "Lora", sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+tr:nth-child(odd) {
+    background-color: #f6f8fa;
+}
+
+.centraliza-linha {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.centraliza-coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+
+.centraliza-coluna .centraliza {
+    justify-content: center;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__edit-botao {
+    flex-direction: row-reverse;
+    gap: 4px;
+}
+
+.cpainel_btn {
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.cpainel_btn::before {
+    display: none;
+}
+
+.cpainel_btn:hover {
+    transform: scale(1.1);
+    transition: all 0.2s;
+}
+
+.btn__editar {
+    background-image: url(../img/icon-edit.png);
+    margin-right: 4px;
+    width: 25px;
+    height: 25px;
+}
+
+.btn__remover {
+    background-image: url(../img/icon-remove.png);
+    width: 25px;
+    height: 25px;
+}
+
+.btn__adicionar {
+    background-image: url(../img/icon-add.png);
+    width: 25px;
+    height: 25px;
+    margin: 18px 20px 0;
+}
+
+.btn__adicionar-menor {
+    background-image: url(../img/icon-add.png);
+    width: 23px;
+    height: 23px;
+    margin: 10px 0;
+}
+
+.btn__remover-menor {
+    background-image: url(../img/icon-remove.png);
+    width: 23px;
+    height: 23px;
+}
+
+.btn_save {
+    background-color: white;
+    color: #E56620;
+    border: 1.9px solid #E56620;
+    border-radius: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.btn_save:hover {
+    background-color: #E56620;
+    color: white;
+    border: 1.9px solid white;
+}
+
+.btn_cancel {
+    background-color: white;
+    color: red;
+    border-radius: 13px;
+    border: 1.9px solid red;
+    padding: 8px 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn_cancel:hover {
+    background-color: red;
+    color: white;
+    border: 1.9px solid white;
+}
+
+@media only screen and (max-width: 600px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    td:nth-of-type(1):before {
+        content: "Column 1";
+    }
+
+    td:nth-of-type(2):before {
+        content: "Column 2";
+    }
+
+    td:nth-of-type(3):before {
+        content: "Column 3";
+    }
+
+    td:nth-of-type(4):before {
+        content: "Column 4";
+    }
+
+    td:nth-of-type(5):before {
+        content: "Column 5";
+    }
+}
