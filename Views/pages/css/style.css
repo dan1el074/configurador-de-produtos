@@ -334,6 +334,7 @@ button:hover::before {
   width: 25px;
   background-color: #6e7379;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 .nav .row {
@@ -490,6 +491,11 @@ option[value=""] {
 .pop-up_form input,
 .pop-up_form select {
   margin-left: 10px;
+}
+
+.finish-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .finish {

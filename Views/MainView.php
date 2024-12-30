@@ -11,7 +11,14 @@
             $this->fileName = $fileName;
             $this->headerFile = $headerFile;
             $this->footerFile = $footerFile;
-            $this->menuItems = ['home', 'login'];
+            $this->menuItems = ['home'];
+
+            if(isset($_SESSION['user'])) {
+                $this->menuItems[] = 'painel';
+                $this->menuItems[] = 'logout';
+            } else {
+                $this->menuItems[] = 'login';
+            }
         }
         
         public function render(array $atributes = []): void {

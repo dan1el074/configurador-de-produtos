@@ -1,8 +1,8 @@
 <?php 
     namespace Services;
 
-use Entities\Comprimento;
-use Repositories\ComprimentoRepository;
+    use Entities\Comprimento;
+    use Repositories\ComprimentoRepository;
 
     class ComprimentoService {
 

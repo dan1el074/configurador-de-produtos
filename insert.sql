@@ -33,7 +33,6 @@ INSERT INTO tb_finish (id, name, abbreviation) VALUES (2, 'Azul segurança munse
 INSERT INTO tb_finish (id, name, abbreviation) VALUES (3, 'Preto', 'PRETO');
 INSERT INTO tb_finish (id, name, abbreviation) VALUES (4, 'Cinza RAL 7031', 'CINZA');
 INSERT INTO tb_finish (id, name, abbreviation) VALUES (5, 'Laranja Segurança munsell 2.5YR 6/14', 'LARANJA');
-INSERT INTO tb_finish (id, name, abbreviation) VALUES (6, 'especial', '');
 
 CREATE TABLE tb_weight (
     id INT PRIMARY KEY,
@@ -119,3 +118,11 @@ INSERT INTO tb_optional (id, name, abbreviation, show_in_result, rules) VALUES (
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (12, 'Calço para Rodas','*', FALSE);
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (13, 'Guia de Rodas','*', FALSE);
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (14, 'Sinaleiro de Doca','SD', FALSE);
+
+CREATE TABLE tb_user (
+    id INT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO tb_user (name, password) VALUES ('admin', '$2y$10$V.6GtJsuO6AnHW9OTsD7dOl90Zvd.vUBDxrjGUvdpfQDAaoiQRbiS')

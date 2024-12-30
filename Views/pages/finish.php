@@ -5,27 +5,8 @@
 
     <div class="copy-container">
         <div class="box">
-            <sl-copy-button value="Shoelace rocks!"></sl-copy-button>
-            <?php 
-                $optionalsAbbreviation = "";
-
-                if(isset($atributes['optionals'])) {
-                    foreach($atributes['optionals'] as $key => $optional) {
-                        if($optional->getShowInResult()) {
-                            $optionalsAbbreviation .= " {$optional->getAbbreviation()}";
-                        }
-                    }
-                }
-
-                echo "<b>
-                    {$atributes['product']->getAbbreviation()}
-                    - MT
-                    {$atributes['weight']->getAbbreviation()}{$atributes['length']->getAbbreviation()}{$atributes['width']->getAbbreviation()}
-                    {$atributes['drive']->getAbbreviation()}
-                    {$optionalsAbbreviation}
-                    P{$_SESSION['order']}
-                </b>"; 
-            ?>
+            <sl-copy-button value="<?= $atributes['abreviation'] ?>"></sl-copy-button>
+            <b><?= $atributes['abreviation'] ?></b>
         </div>
         
         <div class="box">

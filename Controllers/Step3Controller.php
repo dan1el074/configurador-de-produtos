@@ -14,7 +14,11 @@
             session_start();
             $this->produtoService = new ProdutoService();
             $this->opcionaisService = new OpcionaisService();
+            $this->init();          
+            $this->view = new MainView('step3');
+        }
 
+        public function init(): void {
             if (!isset($_SESSION["weight_id"]) || !isset($_SESSION["length_id"]) || !isset($_SESSION["width_id"]) || !isset($_SESSION["drive_id"])) {
                 echo "<script>window.location.href='step2';</script>";
                 exit;
@@ -26,8 +30,6 @@
                 $optionalsId = array_values(array_map('intval', $newArray));
                 $_SESSION['optionalsId'] = $optionalsId;
             }
-            
-            $this->view = new MainView('step3');
         }
 
         public function execute(): void {
@@ -112,7 +114,7 @@
             }
 
             if($find) {
-                $popUp = new popUpView('popUp2');
+                $popUp = new popUpView('optionalPopUp');
                 $popUp->renderWithArray($optionals);
             }
 

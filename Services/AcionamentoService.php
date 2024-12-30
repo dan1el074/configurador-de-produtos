@@ -1,8 +1,8 @@
 <?php 
     namespace Services;
 
-use Entities\Acionamento;
-use Repositories\AcionamentoRepository;
+    use Entities\Acionamento;
+    use Repositories\AcionamentoRepository;
 
     class AcionamentoService {
 

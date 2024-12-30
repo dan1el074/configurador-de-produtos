@@ -14,28 +14,39 @@
             session_start();
             $this->produtoService = new ProdutoService();
             $this->acabamentoService = new AcabamentoService();
+            $this->init();
+            $this->view = new MainView('step1');
+        }
 
+        public function init(): void {
             if(isset($_POST['action'])) {
                 $_SESSION["order"] = $_POST['order'];
                 $_SESSION["product_id"] = $_POST['product_id'];
-                $_SESSION["finish_id"] = $_POST['finish_id'];
+
+                if($_POST["finish_id"] == "especial") {
+                    $_SESSION["finish_especial"] = $_POST['finish_especial'];
+                } else {
+                    if(isset($_SESSION["finish_especial"])) {
+                        unset($_SESSION["finish_especial"]);
+                    }
+
+                    $_SESSION["finish_id"] = $_POST['finish_id'];
+                }
+                return;
             }
             
             if(isset($_POST['halfStepAction'])) {
                 array_pop($_POST);
                 $rulesResult = [];
 
-                foreach($_POST as $key=>$value) {
+                foreach($_POST as $value) {
                     $rulesResult[] = explode(",", $value);
                 }
 
                 $_SESSION['productRules'] = $rulesResult;
-
                 echo "<script>window.location.href='step2';</script>";
                 exit;
             }
-
-            $this->view = new MainView('halfStep');
         }
 
         public function execute(): void {

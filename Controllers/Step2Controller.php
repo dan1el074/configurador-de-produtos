@@ -23,8 +23,12 @@
             $this->comprimentoService = new ComprimentoService();
             $this->larguraService = new LarguraService();
             $this->acionamentoService = new AcionamentoService();
+            $this->init();
+            $this->view = new MainView('step2');
+        }
 
-            if (!isset($_SESSION["order"]) || !isset($_SESSION["product_id"]) || !isset($_SESSION["finish_id"])) {
+        public function init(): void {
+            if (!isset($_SESSION["order"]) || !isset($_SESSION["product_id"])) {
                 echo "<script>window.location.href='step1';</script>";
                 exit;
             }
@@ -35,8 +39,6 @@
                 $_SESSION["width_id"] = $_POST['width_id'];
                 $_SESSION["drive_id"] = $_POST['drive_id'];
             }
-
-            $this->view = new MainView('step2');
         }
 
         public function execute(): void {

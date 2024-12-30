@@ -1,7 +1,8 @@
 <?php 
     namespace Controllers;
 
-    use Services\AcabamentoService;
+use Entities\Acabamento;
+use Services\AcabamentoService;
     use Services\AcionamentoService;
     use Services\CargaService;
     use Services\ComprimentoService;
@@ -37,12 +38,36 @@
 
         public function execute(): void {
             $product = $this->produtoService->findById($_SESSION['product_id']);
-            $finish = $this->acabamentoService->findById($_SESSION['finish_id']);
             $weight = $this->cargaService->findById($_SESSION['weight_id']);
             $length = $this->comprimentoService->findById($_SESSION['length_id']);
             $width = $this->larguraService->findById($_SESSION['width_id']);
             $drive = $this->acionamentoService->findById($_SESSION['drive_id']);
             $opcionals = $this->opcionaisService->findById($_SESSION['optionalsId']);
+
+            if(isset($_SESSION['finish_id'])) {
+                $finish = $this->acabamentoService->findById($_SESSION['finish_id']);
+            } else {
+                $finish = new Acabamento(999, "Especial", $_SESSION['finish_especial']);
+            }
+
+            $optionalsAbbreviation = "";
+            if(isset($opcionals)) {
+                foreach($opcionals as $optional) {
+                    if($optional->getShowInResult()) {
+                        $optionalsAbbreviation .= " {$optional->getAbbreviation()}";
+                    }
+                }
+            }
+
+            $abbreviationResult = "
+                {$product->getAbbreviation()}
+                - MT
+                {$weight->getAbbreviation()}{$length->getAbbreviation()}{$width->getAbbreviation()}
+                {$drive->getAbbreviation()}
+                {$optionalsAbbreviation}
+                P{$_SESSION['order']}
+            "; 
+
             $this->view->render([
                 'titulo'=>'Finish', 
                 'product'=>$product, 
@@ -51,7 +76,8 @@
                 'length'=>$length,
                 'width'=>$width,
                 'drive'=>$drive,
-                'optionals'=>$opcionals
+                'optionals'=>$opcionals,
+                'abreviation'=>$abbreviationResult
             ]);
         }
     }

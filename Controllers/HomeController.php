@@ -14,13 +14,21 @@
             session_start();
             $this->produtoService = new ProdutoService();
             $this->acabamentoService = new AcabamentoService();
+            $this->init();
+        }
 
+        public function init(): void {
             if(isset($_POST['action'])) {
                 $_SESSION["order"] = $_POST['order'];
                 $_SESSION["product_id"] = $_POST['product_id'];
-                $_SESSION["finish_id"] = $_POST['finish_id'];
 
-                $this->view = new MainView('halfStep');
+                if($_POST["finish_id"] == "especial") {
+                    $_SESSION["finish_especial"] = $_POST['finish_especial'];
+                } else {
+                    $_SESSION["finish_id"] = $_POST['finish_id'];
+                }
+                
+                $this->view = new MainView('step1');
                 return;
             }
             
@@ -28,18 +36,26 @@
                 array_pop($_POST);
                 $rulesResult = [];
 
-                foreach($_POST as $key=>$value) {
+                foreach($_POST as $value) {
                     $rulesResult[] = explode(",", $value);
                 }
 
                 $_SESSION['productRules'] = $rulesResult;
-
                 echo "<script>window.location.href='step2';</script>";
                 exit;
             }
 
-            session_unset();
+            $this->unsetItens();
             $this->view = new MainView('home');
+        }
+
+        public function unsetItens(): void {
+            $arr = ['order', 'product_id', 'finish_id', 'finish_especial', 'productRules','weight_id','length_id','width_id','drive_id','driveRules','optionalsId','optionalRules'];
+            foreach($arr as $value) {
+                if(isset($_SESSION[$value])) {
+                    unset($_SESSION[$value]);
+                }
+            }
         }
 
         public function execute(): void {
