@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #dbdbdb;
+  background-color: #fff;
   color: #000;
 }
 
@@ -240,13 +240,45 @@ main p {
   margin-left: 2px;
 }
 
+.delete-pop-up_form {
+  text-align: center;
+  padding: 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+.delete-pop-up_form .button-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.delete-pop-up_form .button-content button {
+  background-color: #202abe;
+}
+
+.delete-pop-up_form .button-content button:nth-child(1) {
+  background-color: rgb(207, 0, 0);
+}
+
+.delete-pop-up_form .button-content button::before {
+  display: none;
+}
+
+.delete-pop-up_form .button-content button:hover {
+  transition: .4s;
+  transform: scale(1.05);
+}
+
 .productForm input,
 .pop-up_form input,
 .productForm select,
 .pop-up_form select,
 .productForm textarea {
   color: #495057;
-  background-color: #fff;
+  background-color: #f3f5f5;;
   border: 1px solid #ced4da;
   border-radius: 6px;
   width: 600px;
@@ -332,7 +364,7 @@ button:hover::before {
 .nav .ball {
   height: 25px;
   width: 25px;
-  background-color: #6e7379;
+  background-color: #c6c6c6;
   border-radius: 100px;
   cursor: pointer;
 }
@@ -340,7 +372,7 @@ button:hover::before {
 .nav .row {
   height: 4px;
   width: 80px;
-  background-color: #6e7379;
+  background-color: #c6c6c6;
 }
 
 .nav.step1 .ball:nth-child(1),
@@ -518,7 +550,7 @@ option[value=""] {
 
 .copy-container .box {
   position: relative;
-  background-color: #fff;
+  background-color: #dbdbdb;
   padding: 35px 35px;
   border-radius: 10px;
   min-width: 500px;

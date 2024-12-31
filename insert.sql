@@ -20,6 +20,7 @@ INSERT INTO tb_products (id, name, abbreviation, options) VALUES (6, 'Porta Secc
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (7, 'Prolongador de Garfo', 'PG', '0,1,5');
 INSERT INTO tb_products (id, name, abbreviation, options) VALUES (8, 'Mesa Elevatoria', 'ME', '1,2,3,4,5');
 INSERT INTO tb_products (id, name, abbreviation, options, rules) VALUES (9, 'Mesa Extra Baixa', 'MEB', '1,2,3,4,5', '{"formato": [["","U"], ["","E"]]}');
+INSERT INTO tb_products (id, name, abbreviation, options) VALUES (10, 'Testandoooo', 'TESTE', '0,1,5');
 
 CREATE TABLE tb_finish (
     id INT PRIMARY KEY,
@@ -33,6 +34,7 @@ INSERT INTO tb_finish (id, name, abbreviation) VALUES (2, 'Azul segurança munse
 INSERT INTO tb_finish (id, name, abbreviation) VALUES (3, 'Preto', 'PRETO');
 INSERT INTO tb_finish (id, name, abbreviation) VALUES (4, 'Cinza RAL 7031', 'CINZA');
 INSERT INTO tb_finish (id, name, abbreviation) VALUES (5, 'Laranja Segurança munsell 2.5YR 6/14', 'LARANJA');
+INSERT INTO tb_finish (id, name, abbreviation) VALUES (6, 'Testandoooo', 'TESTE');
 
 CREATE TABLE tb_weight (
     id INT PRIMARY KEY,
@@ -50,6 +52,7 @@ INSERT INTO tb_weight (id, name, abbreviation) VALUES (6, 'Até 6,5 TON', '65');
 INSERT INTO tb_weight (id, name, abbreviation) VALUES (7, 'Até 9 TON', '9');
 INSERT INTO tb_weight (id, name, abbreviation) VALUES (8, 'Até 12 TON', '12');
 INSERT INTO tb_weight (id, name, abbreviation) VALUES (9, 'Até 14 TON', '14');
+INSERT INTO tb_weight (id, name, abbreviation) VALUES (10, 'Testando', 'TESTE');
 
 CREATE TABLE tb_length (
     id INT PRIMARY KEY,
@@ -67,6 +70,7 @@ INSERT INTO tb_length (id, name, abbreviation) VALUES (6, '2500mm','25');
 INSERT INTO tb_length (id, name, abbreviation) VALUES (7, '3000mm','30');
 INSERT INTO tb_length (id, name, abbreviation) VALUES (8, '3500mm','35');
 INSERT INTO tb_length (id, name, abbreviation) VALUES (9, '4000mm','40');
+INSERT INTO tb_length (id, name, abbreviation) VALUES (10, 'Testando', 'TESTE');
 
 CREATE TABLE tb_width (
     id INT PRIMARY KEY,
@@ -82,6 +86,8 @@ INSERT INTO tb_width (id, name, abbreviation) VALUES (4, '1700mm','17');
 INSERT INTO tb_width (id, name, abbreviation) VALUES (5, '1800mm','18');
 INSERT INTO tb_width (id, name, abbreviation) VALUES (6, '2000mm','20');
 INSERT INTO tb_width (id, name, abbreviation) VALUES (7, '2500mm','25');
+INSERT INTO tb_width (id, name, abbreviation) VALUES (8, 'Testando', 'TESTE');
+
 
 CREATE TABLE tb_drive (
     id INT PRIMARY KEY,
@@ -94,6 +100,7 @@ INSERT INTO tb_drive (id, name, abbreviation, rules) VALUES (0, 'Elétrico hidr�
 INSERT INTO tb_drive (id, name, abbreviation) VALUES (1, 'Hidráulico manual','HM');
 INSERT INTO tb_drive (id, name, abbreviation) VALUES (2, 'Mola a gás','MG');
 INSERT INTO tb_drive (id, name, abbreviation) VALUES (3, 'Mola Helicoidal','MH');
+INSERT INTO tb_drive (id, name, abbreviation) VALUES (4, 'Testando', 'TESTE');
 
 CREATE TABLE tb_optional (
     id INT PRIMARY KEY,
@@ -118,6 +125,7 @@ INSERT INTO tb_optional (id, name, abbreviation, show_in_result, rules) VALUES (
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (12, 'Calço para Rodas','*', FALSE);
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (13, 'Guia de Rodas','*', FALSE);
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (14, 'Sinaleiro de Doca','SD', FALSE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (15, 'Testando', 'TESTE', TRUE);
 
 CREATE TABLE tb_user (
     id INT PRIMARY KEY,

@@ -50,5 +50,11 @@
 
             return $arr[0];
         }
+
+        public function delete(int $id): void {
+            $sql = "DELETE FROM `tb_drive` WHERE `id` = $id";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+        }
     }
 ?>

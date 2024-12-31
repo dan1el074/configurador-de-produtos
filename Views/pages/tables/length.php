@@ -15,7 +15,12 @@
                 <td>#{$count}</td>
                 <td>{$length->getName()}</td>
                 <td>{$length->getAbbreviation()}</td>
-                <td><button class=\"icon\"><img src=\"" . INCLUDE_PATH_FULL . "assets/images/delete-icon.png\"></button></td>
+                <td>
+                    <form method=\"post\" class=\"icon-container\">
+                        <button class=\"icon\" type=\"submit\" name=\"edit\" value=\"length,{$length->getId()}\" title=\"Editar\"><img src=\"" . INCLUDE_PATH_FULL . "assets/images/edit-icon.png\"></button>
+                        <button class=\"icon\" type=\"submit\" name=\"delete\" value=\"length,{$length->getId()}\" title=\"Deletar\"><img src=\"" . INCLUDE_PATH_FULL . "assets/images/delete-icon.png\"></button>                 
+                    </form>
+                </td>
             </tr>
         ";
         $count++;

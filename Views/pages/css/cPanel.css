@@ -41,7 +41,7 @@ body {
 
 .cpainel__aside .active {
     background-color: #f3f5f5 !important;
-    border-left: 4px solid #0e1472 !important;
+    border-left: 4px solid #202abe !important;
 }
 
 .cpainel__conteudo {
@@ -135,6 +135,10 @@ tr:nth-child(odd) {
 
 .cpainel_btn::before {
     display: none;
+}
+
+.icon-container button{
+    padding: 5px;
 }
 
 .cpainel__table .icon img {

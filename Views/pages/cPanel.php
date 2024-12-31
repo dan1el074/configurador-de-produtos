@@ -2,7 +2,7 @@
 <section class="base-cpainel">
     <aside class="cpainel__aside"> 
         <form type="get">
-            <button class="<?= isset($_GET['type']) ? ($_GET['type'] == "products" ? "active" : "" ) : "active" ?>" name="type" value="products">Produtos</button>
+            <button class="<?= isset($_GET['type']) ? ($_GET['type'] == "product" ? "active" : "" ) : "active" ?>" name="type" value="product">Produtos</button>
             <button class="<?= isset($_GET['type']) ? ($_GET['type'] == "finish" ? "active" : "" ) : "" ?>" name="type" value="finish">Acabamentos</button>
             <button class="<?= isset($_GET['type']) ? ($_GET['type'] == "weight" ? "active" : "" ) : "" ?>" name="type" value="weight">Carga</button>
             <button class="<?= isset($_GET['type']) ? ($_GET['type'] == "length" ? "active" : "" ) : "" ?>" name="type" value="length">Comprimento</button>
@@ -25,8 +25,8 @@
                             $type = $_GET['type'];
                 
                             switch($type){
-                                case 'products';
-                                    include("tables/products.php");
+                                case 'product';
+                                    include("tables/product.php");
                                     break;
                                 case "finish";
                                     include("tables/finish.php");
@@ -48,7 +48,7 @@
                                     break;
                             }
                         }else{
-                            include("tables/products.php");
+                            include("tables/product.php");
                         }
                     ?>
                 </thead>

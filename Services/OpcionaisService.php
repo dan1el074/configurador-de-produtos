@@ -1,7 +1,8 @@
 <?php 
     namespace Services;
 
-    use Repositories\OpcionaisRepository;
+use Entities\Opcionais;
+use Repositories\OpcionaisRepository;
 
     class OpcionaisService {
 
@@ -15,8 +16,16 @@
             return $this->repository->findAll();
         }
 
-        public function findById(array $ids): array {
-            return $this->repository->findById($ids);
+        public function findByIds(array $ids): array {
+            return $this->repository->findByIds($ids);
+        }
+
+        public function findById(int $id): Opcionais {
+            return $this->repository->findById($id);
+        }
+
+        public function delete(int $id): void {
+            $this->repository->delete($id);
         }
 
     }

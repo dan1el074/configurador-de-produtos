@@ -20,6 +20,10 @@
             return $this->repository->findById($id);
         }
 
+        public function delete(int $id): void {
+            $this->repository->delete($id);
+        }
+
     }
 
 ?>

@@ -9,11 +9,11 @@
         }
         
         public function render(object $object): void {
-            include('pages/'.$this->popUp.'.php');
+            include('pages/popUp/'.$this->popUp.'.php');
         }
 
         public function renderWithArray(array $arrayOptionals): void {
-            include('pages/'.$this->popUp.'.php');
+            include('pages/popUp/'.$this->popUp.'.php');
         }
     }
 

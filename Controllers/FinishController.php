@@ -42,7 +42,7 @@ use Services\AcabamentoService;
             $length = $this->comprimentoService->findById($_SESSION['length_id']);
             $width = $this->larguraService->findById($_SESSION['width_id']);
             $drive = $this->acionamentoService->findById($_SESSION['drive_id']);
-            $opcionals = $this->opcionaisService->findById($_SESSION['optionalsId']);
+            $opcionals = $this->opcionaisService->findByIds($_SESSION['optionalsId']);
 
             if(isset($_SESSION['finish_id'])) {
                 $finish = $this->acabamentoService->findById($_SESSION['finish_id']);
