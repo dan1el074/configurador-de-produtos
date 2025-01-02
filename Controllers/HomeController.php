@@ -61,7 +61,7 @@
         public function execute(): void {
             $productArray = $this->produtoService->findAll();
             $finishArray = $this->acabamentoService->findAll();
-            $this->view->render(['titulo'=>'home','produtos'=>$productArray,'acabamentos'=>$finishArray]);
+            $this->view->render(['title'=>'início','produtos'=>$productArray,'acabamentos'=>$finishArray]);
 
             if(isset($_POST['action'])) {
                 $this->nextStep($productArray);

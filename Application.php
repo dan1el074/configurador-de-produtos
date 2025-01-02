@@ -1,9 +1,9 @@
 <?php 
-    define('INCLUDE_PATH_FULL', 'http://localhost/configurador-de-produtos/Views/pages/');
-    define('INCLUDE_PATH', 'http://localhost/configurador-de-produtos/');
+    // define('INCLUDE_PATH_FULL', 'http://localhost/configurador-de-produtos/Views/pages/');
+    // define('INCLUDE_PATH', 'http://localhost/configurador-de-produtos/');
 
-    // define('INCLUDE_PATH_FULL', 'http://metaro-ti/configurador-de-produtos/Views/pages/');
-    // define('INCLUDE_PATH', 'http://metaro-ti/configurador-de-produtos/');
+    define('INCLUDE_PATH_FULL', 'http://192.168.1.216/configurador-de-produtos/Views/pages/');
+    define('INCLUDE_PATH', 'http://192.168.1.216/configurador-de-produtos/');
 
     class Application {
         private string $url;

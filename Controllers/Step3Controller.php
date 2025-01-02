@@ -56,7 +56,7 @@
                 }
             }
 
-            $this->view->render(['titulo'=>'step-2','produtos'=>$productArray, 'opcionais'=>$opcionaisArrayFiltered]);
+            $this->view->render(['title'=>'Passo 3','produtos'=>$productArray, 'opcionais'=>$opcionaisArrayFiltered]);
 
             if(isset($_POST['action'])) {
                 array_pop($_POST);

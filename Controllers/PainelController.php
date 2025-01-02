@@ -22,6 +22,7 @@
 
         public function __construct() {
             session_start();
+            $this->unsetItens();
 
             $path = INCLUDE_PATH;
             if(!isset($_SESSION['user'])){
@@ -40,13 +41,19 @@
         }
 
         public function init(): void {
-            $this->view = new MainView('cPanel','cPanelHeader');
+            if(isset($_POST['newItem'])) {
+                $path = INCLUDE_PATH;
+                header("Location:{$path}create?type={$_POST['newItem']}");
+                return;
+            }
 
             if(isset($_POST['edit'])) {
                 print_r($_POST);
                 die();
             }
-            
+
+            $this->view = new MainView('cPanel','cPanelHeader');
+
             if(isset($_POST['delete'])) {
                 $arr = explode(',',$_POST['delete']);
 
@@ -127,7 +134,7 @@
             $opcionals = $this->opcionaisService->findAll();
 
             $this->view->render([
-                'titulo'=>'Painel', 
+                'title'=>'Painel', 
                 'product'=>$product, 
                 'finish'=>$finish, 
                 'weight'=>$weight,
@@ -136,6 +143,15 @@
                 'drive'=>$drive,
                 'optionals'=>$opcionals
             ]);
+        }
+
+        public function unsetItens(): void {
+            $arr = ['order', 'product_id', 'finish_id', 'finish_especial', 'productRules','weight_id','length_id','width_id','drive_id','driveRules','optionalsId','optionalRules'];
+            foreach($arr as $value) {
+                if(isset($_SESSION[$value])) {
+                    unset($_SESSION[$value]);
+                }
+            }
         }
     }
 ?>

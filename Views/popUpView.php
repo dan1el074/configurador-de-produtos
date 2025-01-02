@@ -8,7 +8,7 @@
             $this->popUp = $popUp;
         }
         
-        public function render(object $object): void {
+        public function render(object $object, string $name = ""): void {
             include('pages/popUp/'.$this->popUp.'.php');
         }
 

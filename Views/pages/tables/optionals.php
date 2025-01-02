@@ -25,5 +25,13 @@
         ";
         $count++;
     }
+
+    $text .= "
+        <script>
+            setTimeout(() => {
+                document.getElementById('new').value = 'optionals';
+            }, 50);
+        </script>
+    ";
     echo $text;
 ?>

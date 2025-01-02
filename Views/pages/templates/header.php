@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Metaro | <?= ucfirst($atributes['titulo']) ?></title>
+    <title>Portal Metaro | <?= ucfirst($atributes['title']) ?></title>
     <link rel="stylesheet" href="<?= INCLUDE_PATH_FULL ?>css/style.css">
 </head>
 

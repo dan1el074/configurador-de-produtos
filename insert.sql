@@ -88,7 +88,6 @@ INSERT INTO tb_width (id, name, abbreviation) VALUES (6, '2000mm','20');
 INSERT INTO tb_width (id, name, abbreviation) VALUES (7, '2500mm','25');
 INSERT INTO tb_width (id, name, abbreviation) VALUES (8, 'Testando', 'TESTE');
 
-
 CREATE TABLE tb_drive (
     id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -114,7 +113,7 @@ INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (0, 'Gua
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result, rules) VALUES (1, 'Luminária para doca','*', FALSE,'{"watts": [["","30W"], ["","100W"]], "dimenção": [["padrão","600x600mm"], ["especial",""]]}');
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (2, 'Guarda corpo Romovivel','GC REM', TRUE);
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (3, 'Abas laterais','AL', TRUE);
-INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (4, 'NR10','N1', TRUE);
+INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (4, 'NR10','N1', FALSE);
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (5, 'NR12','N2', TRUE);
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (6, 'Pedestal','PED', FALSE);
 INSERT INTO tb_optional (id, name, abbreviation, show_in_result) VALUES (7, 'PROTEÇÃO UH','PROT UH', FALSE);

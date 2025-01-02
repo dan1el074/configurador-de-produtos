@@ -32,7 +32,7 @@
         }
 
         public function execute(): void {
-            $this->view->render(['titulo'=>'Login','login'=>$this->loginFail]);
+            $this->view->render(['title'=>'Login','login'=>$this->loginFail]);
         }
     }
 ?>

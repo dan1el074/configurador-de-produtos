@@ -69,7 +69,7 @@ use Services\AcabamentoService;
             "; 
 
             $this->view->render([
-                'titulo'=>'Finish', 
+                'title'=>'Resultado', 
                 'product'=>$product, 
                 'finish'=>$finish, 
                 'weight'=>$weight,

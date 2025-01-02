@@ -52,11 +52,10 @@
                         }
                     ?>
                 </thead>
-                <tbody>
-
-                </tbody>
             </table>
-            <button title="Adicionar"><span>Adicionar</span></button>
+            <form method="post">
+                <button value="" name="newItem" id="new" title="Adicionar"><span>Adicionar</span></button>
+            </form>
         </div>
     </div>
 </section>

@@ -47,9 +47,13 @@
             $comprimentoArray = $this->comprimentoService->findAll();
             $larguraArray = $this->larguraService->findAll();
             $acionamentoArray = $this->acionamentoService->findAll();
-            $this->view->render(['titulo'=>'step-2','produtos'=>$productArray, 'carga'=>$cargaArray, 'comprimento'=>$comprimentoArray, 'largura'=>$larguraArray, 'acionamento'=>$acionamentoArray]);
+            $this->view->render(['title'=>'Passo 2','produtos'=>$productArray, 'carga'=>$cargaArray, 'comprimento'=>$comprimentoArray, 'largura'=>$larguraArray, 'acionamento'=>$acionamentoArray]);
 
             if(isset($_POST['action'])) {
+                if(isset($_SESSION['driveRules'])) {
+                    unset($_SESSION['driveRules']);
+                }
+
                 $this->nextStep($acionamentoArray);
             }
             

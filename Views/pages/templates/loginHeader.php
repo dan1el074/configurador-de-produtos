@@ -12,6 +12,6 @@
     
     <link rel="stylesheet" href="<?= INCLUDE_PATH_FULL ?>css/login.css">
 
-    <title>Portal Metaro | <?= ucfirst($atributes['titulo']) ?></title>
+    <title>Portal Metaro | <?= ucfirst($atributes['title']) ?></title>
 </head>
 <body>
